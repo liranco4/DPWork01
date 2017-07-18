@@ -18,8 +18,7 @@ namespace DPWork01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = "first";
-            //asdadas
+            this.Text = "example";
         }
     }
 }
