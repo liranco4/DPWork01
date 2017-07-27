@@ -6,7 +6,7 @@ using System.Drawing;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
 
-namespace C17_Ex01_Opal_308345438_Liran_201392131.Model
+namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     class FacebookOperation
     {
@@ -93,7 +93,20 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131.Model
             return userAlbums;
         }
 
+        public FacebookObjectCollection<Video> FetchUserVideos()
+        {
+            FacebookObjectCollection<Video> userVideos = new FacebookObjectCollection<Video>();
 
+            if (m_User != null)
+            {
+                userVideos = m_User.Videos;
+            }
+            else
+            {
+                throw new InvalidOperationException("User does not declared in the system");
+            }
+            return userVideos;
+        }
     }
 
 }
