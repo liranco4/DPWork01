@@ -76,6 +76,7 @@
             this.buttonCheckIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonCheckIn.Name = "buttonCheckIn";
             this.buttonCheckIn.UseVisualStyleBackColor = true;
+            this.buttonCheckIn.Click += new System.EventHandler(this.buttonCheckIn_Click);
             // 
             // buttonAlbums
             // 
@@ -83,6 +84,7 @@
             this.buttonAlbums.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonAlbums.Name = "buttonAlbums";
             this.buttonAlbums.UseVisualStyleBackColor = true;
+            this.buttonAlbums.Click += new System.EventHandler(this.buttonAlbums_Click);
             // 
             // buttonInfo
             // 
@@ -90,6 +92,7 @@
             this.buttonInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonInfo.Name = "buttonInfo";
             this.buttonInfo.UseVisualStyleBackColor = true;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
             // PictureBox1
             // 

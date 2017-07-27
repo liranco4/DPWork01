@@ -13,6 +13,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormHome : Form
     {
+        List<Panel> PanelsList { get; set; }
         User LoggedInUser { get; set; }
         bool ToMove { get; set; }
         int MValX { get; set; }
@@ -27,7 +28,10 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
             pictureBoxProfile.BringToFront();
-            
+            PanelsList=new List<Panel>();
+            PanelsList.Add(panel1);
+            PanelsList.Add(panel2);
+            PanelsList.Add(panel3);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -124,6 +128,36 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
                 //this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
             }
+        }
+
+        private void buttonInfo_Click(object sender, EventArgs e)
+        {
+            FormInfo objForm = new FormInfo();
+            objForm.TopLevel = false;
+            panel3.Controls.Add(objForm);
+            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
+        }
+
+        private void buttonAlbums_Click(object sender, EventArgs e)
+        {
+            FormAlbums objForm = new FormAlbums();
+            objForm.TopLevel = false;
+            panel3.Controls.Add(objForm);
+            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
+        }
+
+        private void buttonCheckIn_Click(object sender, EventArgs e)
+        {
+            FormCheckIn objForm = new FormCheckIn();
+            objForm.TopLevel = false;
+            panel3.Controls.Add(objForm);
+            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
         }
 
     }
