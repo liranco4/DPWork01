@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DPWork01.Properties
+namespace C17_Ex01_Opal_308345438_Liran_201392131.Properties
 {
 
 
