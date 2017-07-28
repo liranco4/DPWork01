@@ -86,7 +86,7 @@
             this.ClientSize = new System.Drawing.Size(913, 552);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.loadVideoButton);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
+            //this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);

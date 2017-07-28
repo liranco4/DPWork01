@@ -10,9 +10,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     class FacebookOperation
     {
+        bool m_isLogedIn = false;
         private User m_User;
         private String m_AppID;
         private String m_AccessToken = null;
+
         public FacebookOperation(String i_AppID, int i_CollectionLimit, float i_FbApiVersion)
         {
             FacebookWrapper.FacebookService.s_CollectionLimit = i_CollectionLimit;
@@ -23,6 +25,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         public Boolean LoginToFaceBook(params string[] i_RequestPermissions)
         {
             Boolean loginOperationSucceeded = true;
+            m_isLogedIn = true;
+
             try
             {
                 LoginResult result = FacebookService.Login(m_AppID, i_RequestPermissions);
@@ -34,13 +38,15 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 else
                 {
                     loginOperationSucceeded = false;
+                    m_isLogedIn = false;
                     ///TODO inform with delegate to error message result.ErrorMessage
                 }
             }
-            catch (Exception exception)
+            catch (Facebook.FacebookOAuthException exception)
             {
                 ///TODO inform with delegate to error message
                 loginOperationSucceeded = false;
+                m_isLogedIn = false;
             }
             return loginOperationSucceeded;
         }
@@ -64,12 +70,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             return userDetails;
         }
 
-        public Image FetchUserProfilePicture()
+        public string FetchUserProfilePicture()
         {
-            Image profilePicture;
+            string profilePicture;
             if(m_User != null)
             {
-                profilePicture = m_User.ImageNormal;
+                profilePicture = m_User.PictureNormalURL;
             }
             else
             {
@@ -106,6 +112,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 throw new InvalidOperationException("User does not declared in the system");
             }
             return userVideos;
+        }
+
+        public bool isLoggedIn()
+        {
+            return m_isLogedIn;
         }
     }
 

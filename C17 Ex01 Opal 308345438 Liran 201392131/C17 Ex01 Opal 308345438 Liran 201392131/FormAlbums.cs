@@ -26,7 +26,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void loadVideoButton_Click(object sender, EventArgs e)
         {
-            if(!faceBookOperation.LoginToFaceBook( "public_profile",
+            /*if(!faceBookOperation.LoginToFaceBook( "public_profile",
                 "user_education_history",
                 "user_birthday",
                 "user_actions.video",
@@ -78,13 +78,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                    int x = 1;
                     listBox1.Items.Add(video.URL);
                }
-            }
+            }*/
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int x = 1;
-            axWindowsMediaPlayer1.URL = sender.ToString();
+            axWindowsMediaPlayer1.URL = "https://www.youtube.com/watch?v=5tpQEsJ0iVg&spfreload=1";
         }
        
     }

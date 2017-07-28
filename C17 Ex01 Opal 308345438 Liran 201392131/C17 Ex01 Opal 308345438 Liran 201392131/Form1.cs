@@ -13,16 +13,18 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormHome : Form
     {
+        FacebookOperation FacebookOp { get; set; }
         List<Panel> PanelsList { get; set; }
-        User LoggedInUser { get; set; }
         bool ToMove { get; set; }
         int MValX { get; set; }
         int MValY { get; set; }
+        Form CurrentForm { get; set; }
 
         public FormHome()
         {
             InitializeComponent();
 
+           FacebookOp = new FacebookOperation("1752749615018089", 200, 20.5f);
             var imageSize = PictureBox1.Image.Size;
             var fitSize = PictureBox1.ClientSize;
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
@@ -36,10 +38,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            /// Use the FacebookService.Login method to display the login form to any user who wish to use this application.
-            /// You can then save the result.AccessToken for future auto-connect to this user:
-            LoginResult result = FacebookService.Login("1752749615018089", /// (desig patter's "Design Patterns Course App 2.4" app)
-                "public_profile",
+            List<string> userDetails;
+
+            if (FacebookOp.LoginToFaceBook("public_profile",
                 "user_education_history",
                 "user_birthday",
                 "user_actions.video",
@@ -79,23 +80,15 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 "publish_actions",
 
                 "rsvp_event"
-                );
-            // These are NOT the complete list of permissions. Other permissions for example:
-            // "user_birthday", "user_education_history", "user_hometown", "user_likes","user_location","user_relationships","user_relationship_details","user_religion_politics", "user_videos", "user_website", "user_work_history", "email","read_insights","rsvp_event","manage_pages"
-            // The documentation regarding facebook login and permissions can be found here: 
-            // https://developers.facebook.com/docs/facebook-login/permissions#reference
-
-
-            if (!string.IsNullOrEmpty(result.AccessToken))
+                ))
             {
-                LoggedInUser = result.LoggedInUser;
-                //this.Text = (m_LoggedInUser.FirstName + " " + m_LoggedInUser.LastName);
-                pictureBoxProfile.Load(LoggedInUser.PictureNormalURL);
-                labelUserInfo.Text = "Hello " + LoggedInUser.Name;
+                userDetails = FacebookOp.FetchUserBasicDetails();
+                pictureBoxProfile.Load(FacebookOp.FetchUserProfilePicture());
+                labelUserInfo.Text = "Hello " + userDetails[0] + " " + userDetails[1];
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                MessageBox.Show("Cannot Loged In");
             }
         }
 
@@ -126,38 +119,73 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             if (ToMove)
             {
                 this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
-                //this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
             }
         }
 
         private void buttonInfo_Click(object sender, EventArgs e)
         {
-            FormInfo objForm = new FormInfo();
-            objForm.TopLevel = false;
-            panel3.Controls.Add(objForm);
-            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            objForm.Dock = DockStyle.Fill;
-            objForm.Show();
+            if (!FacebookOp.isLoggedIn())
+            {
+                MessageBox.Show("You have to log in first");
+            }
+            else
+            {
+                if (panel3.Controls.Count > 0)
+                {
+                    ((Form)panel3.Controls[0]).Hide();
+                    panel3.Controls.RemoveAt(0);
+                }
+                FormInfo objForm = new FormInfo();
+                objForm.TopLevel = false;
+                panel3.Controls.Add(objForm);
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                objForm.Show();
+            }
         }
 
         private void buttonAlbums_Click(object sender, EventArgs e)
         {
-            FormAlbums objForm = new FormAlbums();
-            objForm.TopLevel = false;
-            panel3.Controls.Add(objForm);
-            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            objForm.Dock = DockStyle.Fill;
-            objForm.Show();
+            if (!FacebookOp.isLoggedIn())
+            {
+                MessageBox.Show("You have to log in first");
+            }
+            else
+            {
+                if (panel3.Controls.Count > 0)
+                {
+                    ((Form)panel3.Controls[0]).Hide();
+                    panel3.Controls.RemoveAt(0);
+                }
+                FormAlbums objForm = new FormAlbums();
+                objForm.TopLevel = false;
+                panel3.Controls.Add(objForm);
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                objForm.Show();
+            }
         }
 
         private void buttonCheckIn_Click(object sender, EventArgs e)
         {
-            FormCheckIn objForm = new FormCheckIn();
-            objForm.TopLevel = false;
-            panel3.Controls.Add(objForm);
-            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            objForm.Dock = DockStyle.Fill;
-            objForm.Show();
+            if (!FacebookOp.isLoggedIn())
+            {
+                MessageBox.Show("You have to log in first");
+            }
+            else
+            {
+                if (panel3.Controls.Count > 0)
+                {
+                    ((Form)panel3.Controls[0]).Hide();
+                    panel3.Controls.RemoveAt(0);
+                }
+                FormCheckIn objForm = new FormCheckIn();
+                objForm.TopLevel = false;
+                panel3.Controls.Add(objForm);
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                objForm.Show();
+            }
         }
 
     }
