@@ -13,10 +13,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormAlbums : Form
     {
-        private FacebookOperation faceBookOperation = new FacebookOperation("1752749615018089", 200, 20.5f);
-        public FormAlbums()
+        private FacebookOperation FacebookOp { get; set; }
+
+        public FormAlbums(FacebookOperation i_FacebookOp)
         {
             InitializeComponent();
+            FacebookOp = i_FacebookOp;
         }
 
         private void button1_Click(object sender, EventArgs e)

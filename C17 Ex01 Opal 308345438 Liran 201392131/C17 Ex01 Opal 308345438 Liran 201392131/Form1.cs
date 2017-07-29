@@ -13,12 +13,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormHome : Form
     {
-        FacebookOperation FacebookOp { get; set; }
-        List<Panel> PanelsList { get; set; }
-        bool ToMove { get; set; }
-        int MValX { get; set; }
-        int MValY { get; set; }
-        Form CurrentForm { get; set; }
+        private FacebookOperation FacebookOp { get; set; }
+        private List<Panel> PanelsList { get; set; }
+        private bool ToMove { get; set; }
+        private int MValX { get; set; }
+        private int MValY { get; set; }
+        private Form CurrentForm { get; set; }
 
         public FormHome()
         {
@@ -126,7 +126,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!FacebookOp.isLoggedIn())
             {
-                MessageBox.Show("You have to log in first");
+                MessageBox.Show("You must login first");
             }
             else
             {
@@ -135,7 +135,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                     ((Form)panel3.Controls[0]).Hide();
                     panel3.Controls.RemoveAt(0);
                 }
-                FormInfo objForm = new FormInfo();
+                FormInfo objForm = new FormInfo(FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -148,7 +148,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!FacebookOp.isLoggedIn())
             {
-                MessageBox.Show("You have to log in first");
+                MessageBox.Show("You must login first");
             }
             else
             {
@@ -157,7 +157,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                     ((Form)panel3.Controls[0]).Hide();
                     panel3.Controls.RemoveAt(0);
                 }
-                FormAlbums objForm = new FormAlbums();
+                FormAlbums objForm = new FormAlbums(FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -170,7 +170,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!FacebookOp.isLoggedIn())
             {
-                MessageBox.Show("You have to log in first");
+                MessageBox.Show("You must login first");
             }
             else
             {
@@ -179,7 +179,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                     ((Form)panel3.Controls[0]).Hide();
                     panel3.Controls.RemoveAt(0);
                 }
-                FormCheckIn objForm = new FormCheckIn();
+                FormCheckIn objForm = new FormCheckIn(FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
