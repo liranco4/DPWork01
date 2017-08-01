@@ -56,7 +56,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
 
             listBoxFetchLikedPages.Items.Clear();
-            listBoxFetchLikedPages.DisplayMember = "Name";
+            listBoxFetchLikedPages.DisplayMember = "Name";//jjjj
 
             if(FacebookOp.FetchLikedPagesCount()>0)
             {
