@@ -25,8 +25,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         public Boolean LoginToFaceBook(params string[] i_RequestPermissions)
         {
             Boolean o_LoginOperationSucceeded = true;
-            m_isLogedIn = true;
-
+            
             try
             {
                 LoginResult result = FacebookService.Login(m_AppID, i_RequestPermissions);
@@ -38,7 +37,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 else
                 {
                     o_LoginOperationSucceeded = false;
-                    m_isLogedIn = false;
+
                     ///TODO inform with delegate to error message result.ErrorMessage
                 }
             }
@@ -46,7 +45,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 ///TODO inform with delegate to error message
                 o_LoginOperationSucceeded = false;
-                m_isLogedIn = false;
             }
             return o_LoginOperationSucceeded;
         }
@@ -116,6 +114,15 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         public bool isLoggedIn()
         {
+            if(m_User==null)
+            {
+                m_isLogedIn = false;
+            }
+            else
+            {
+                m_isLogedIn = true;
+            }
+
             return m_isLogedIn;
         }
 
@@ -211,13 +218,61 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         public FacebookObjectCollection<Post> FetchPosts()
         {
-            return m_User.Posts;
+            if (m_User != null)
+            {
+                return m_User.Posts;
+            }
+            else
+            {
+                throw new InvalidOperationException("User does not declared in the system");
+            }
         }
 
         public int FetchPostsCount()
         {
-            return m_User.Posts.Count;
+            if (m_User != null)
+            {
+                return m_User.Posts.Count;
+            }
+            else
+            {
+                throw new InvalidOperationException("User does not declared in the system");
+            }
         }
+
+        public void LogOut()
+        {
+            Action o_LogOut = null;
+
+            FacebookService.Logout(o_LogOut);
+
+            m_User = null;
+        }
+
+        public FacebookObjectCollection<Event> FetchEvents()
+        {
+            if (m_User != null)
+            {
+                return m_User.Events;
+            }
+            else
+            {
+                throw new InvalidOperationException("User does not declared in the system");
+            }
+        }
+
+        public int FetchEevntsCount()
+        {
+            if (m_User != null)
+            {
+                return m_User.Events.Count;
+            }
+            else
+            {
+                throw new InvalidOperationException("User does not declared in the system");
+            }
+        }
+             
     }
 
 }

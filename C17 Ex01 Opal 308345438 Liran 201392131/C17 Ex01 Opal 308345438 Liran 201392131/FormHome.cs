@@ -85,6 +85,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 userDetails = FacebookOp.FetchUserBasicDetails();
                 pictureBoxProfile.Load(FacebookOp.FetchUserProfilePicture());
                 labelUserInfo.Text = "Hello " + userDetails[0] + " " + userDetails[1];
+                pictureBoxProfile.Show();
             }
             else
             {
@@ -102,7 +103,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void mainPanel_MouseDown(object sender, MouseEventArgs e)
+        /*private void mainPanel_MouseDown(object sender, MouseEventArgs e)
         {
             ToMove = true;
             MValX = e.X+panel1.Width;
@@ -120,7 +121,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
             }
-        }
+        }*/
 
         private void buttonInfo_Click(object sender, EventArgs e)
         {
@@ -130,17 +131,18 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                if (panel3.Controls.Count > 0)
-                {
-                    ((Form)panel3.Controls[0]).Hide();
-                    panel3.Controls.RemoveAt(0);
-                }
                 FormInfo objForm = new FormInfo(FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 objForm.Dock = DockStyle.Fill;
                 objForm.Show();
+                if (panel3.Controls.Count > 1)
+                {
+                    panel3.Controls[1].Show();
+                    ((Form)panel3.Controls[0]).Hide();
+                    panel3.Controls.RemoveAt(0);
+                }
             }
         }
 
@@ -152,17 +154,18 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                if (panel3.Controls.Count > 0)
-                {
-                    ((Form)panel3.Controls[0]).Hide();
-                    panel3.Controls.RemoveAt(0);
-                }
                 FormAlbums objForm = new FormAlbums(FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 objForm.Dock = DockStyle.Fill;
                 objForm.Show();
+                if (panel3.Controls.Count > 1)
+                {
+                    panel3.Controls[1].Show();
+                    ((Form)panel3.Controls[0]).Hide();
+                    panel3.Controls.RemoveAt(0);
+                }
             }
         }
 
@@ -174,19 +177,89 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                if (panel3.Controls.Count > 0)
-                {
-                    ((Form)panel3.Controls[0]).Hide();
-                    panel3.Controls.RemoveAt(0);
-                }
                 FormCheckIn objForm = new FormCheckIn(FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 objForm.Dock = DockStyle.Fill;
                 objForm.Show();
+                if (panel3.Controls.Count > 1)
+                {
+                    panel3.Controls[1].Show();
+                    ((Form)panel3.Controls[0]).Hide();
+                    panel3.Controls.RemoveAt(0);
+                }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(FacebookOp.isLoggedIn())
+            {
+                FacebookOp.LogOut();
+                pictureBoxProfile.Hide();
+                labelUserInfo.Text = string.Empty;
+                if (panel3.Controls.Count > 0)
+                {
+                    ((Form)panel3.Controls[0]).Hide();
+                    panel3.Controls.RemoveAt(0);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You are not login");
+            }
+        }
+
+        private void pictureBoxHomePage_Click(object sender, EventArgs e)
+        {
+            if (panel3.Controls.Count > 0)
+            {
+                panel3.Controls.RemoveAt(0);
+            }
+        }
+
+        private void panel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            ToMove = false;
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ToMove = true;
+            MValX = e.X + panel1.Width;
+            MValY = e.Y;
+        }
+
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (ToMove)
+            {
+                this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            ToMove = false;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (ToMove)
+            {
+                this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ToMove = true;
+            MValX = e.X;
+            MValY = e.Y;
+        }
+
+
 
     }
     

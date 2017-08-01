@@ -38,6 +38,8 @@
             this.pictureBoxLikedPage = new System.Windows.Forms.PictureBox();
             this.listBoxFetchPost = new System.Windows.Forms.ListBox();
             this.buttonFetchPost = new System.Windows.Forms.Button();
+            this.listBoxFetchEvents = new System.Windows.Forms.ListBox();
+            this.buttonFetchEvents = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).BeginInit();
             this.SuspendLayout();
@@ -137,7 +139,7 @@
             this.listBoxFetchPost.ItemHeight = 16;
             this.listBoxFetchPost.Location = new System.Drawing.Point(848, 311);
             this.listBoxFetchPost.Name = "listBoxFetchPost";
-            this.listBoxFetchPost.Size = new System.Drawing.Size(361, 404);
+            this.listBoxFetchPost.Size = new System.Drawing.Size(361, 164);
             this.listBoxFetchPost.TabIndex = 10;
             // 
             // buttonFetchPost
@@ -147,7 +149,7 @@
             this.buttonFetchPost.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchPost.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonFetchPost.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonFetchPost.Location = new System.Drawing.Point(947, 262);
+            this.buttonFetchPost.Location = new System.Drawing.Point(848, 262);
             this.buttonFetchPost.Name = "buttonFetchPost";
             this.buttonFetchPost.Size = new System.Drawing.Size(142, 43);
             this.buttonFetchPost.TabIndex = 11;
@@ -155,12 +157,38 @@
             this.buttonFetchPost.UseVisualStyleBackColor = false;
             this.buttonFetchPost.Click += new System.EventHandler(this.buttonFetchPost_Click);
             // 
+            // listBoxFetchEvents
+            // 
+            this.listBoxFetchEvents.FormattingEnabled = true;
+            this.listBoxFetchEvents.ItemHeight = 16;
+            this.listBoxFetchEvents.Location = new System.Drawing.Point(848, 551);
+            this.listBoxFetchEvents.Name = "listBoxFetchEvents";
+            this.listBoxFetchEvents.Size = new System.Drawing.Size(361, 164);
+            this.listBoxFetchEvents.TabIndex = 12;
+            // 
+            // buttonFetchEvents
+            // 
+            this.buttonFetchEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.buttonFetchEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFetchEvents.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFetchEvents.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonFetchEvents.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.buttonFetchEvents.Location = new System.Drawing.Point(848, 502);
+            this.buttonFetchEvents.Name = "buttonFetchEvents";
+            this.buttonFetchEvents.Size = new System.Drawing.Size(142, 43);
+            this.buttonFetchEvents.TabIndex = 13;
+            this.buttonFetchEvents.Text = "Fetch Events";
+            this.buttonFetchEvents.UseVisualStyleBackColor = false;
+            this.buttonFetchEvents.Click += new System.EventHandler(this.buttonFetchEvents_Click);
+            // 
             // FormInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources._36427424_Mobile_apps_pattern_with_music_chat_gallery_speaking_bubble_email_magnifying_glass_shopping_search_n_Stock_Vector;
             this.ClientSize = new System.Drawing.Size(1235, 727);
+            this.Controls.Add(this.buttonFetchEvents);
+            this.Controls.Add(this.listBoxFetchEvents);
             this.Controls.Add(this.buttonFetchPost);
             this.Controls.Add(this.listBoxFetchPost);
             this.Controls.Add(this.pictureBoxLikedPage);
@@ -193,6 +221,8 @@
         private System.Windows.Forms.PictureBox pictureBoxLikedPage;
         private System.Windows.Forms.ListBox listBoxFetchPost;
         private System.Windows.Forms.Button buttonFetchPost;
+        private System.Windows.Forms.ListBox listBoxFetchEvents;
+        private System.Windows.Forms.Button buttonFetchEvents;
 
 
     }

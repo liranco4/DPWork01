@@ -87,6 +87,19 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
         }
 
+        private void buttonFetchEvents_Click(object sender, EventArgs e)
+        {
+            if (FacebookOp.FetchEevntsCount() > 0)
+            {
+                listBoxFetchEvents.DisplayMember = "Name";
+                listBoxFetchEvents.DataSource = FacebookOp.FetchEvents();
+            }
+            else
+            {
+                MessageBox.Show(UsertDetails[0] + " has no post");
+            }
+        }
+
 
     }
 }

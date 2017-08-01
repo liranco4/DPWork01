@@ -32,13 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FBApi\Facebook.dll</HintPath>
+    <Reference Include="Facebook">
+      <HintPath>..\..\Facebook.dll</HintPath>
     </Reference>
-    <Reference Include="FbGraphApiWrapper, Version=6.8.0.15, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FBApi\FbGraphApiWrapper.dll</HintPath>
+    <Reference Include="FbGraphApiWrapper">
+      <HintPath>..\..\FbGraphApiWrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,11 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FacebookOperation.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormHome.Designer.cs">
+      <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAlbums.cs">
       <SubType>Form</SubType>
@@ -77,11 +75,10 @@
     <Compile Include="FormInfo.Designer.cs">
       <DependentUpon>FormInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FriendLists.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormHome.resx">
+      <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAlbums.resx">
       <DependentUpon>FormAlbums.cs</DependentUpon>
@@ -117,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\background.jpg" />
+    <Content Include="Resources\background1.jpg" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\background11.jpg" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">

@@ -36,6 +36,8 @@
             this.buttonInfo = new System.Windows.Forms.Button();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxHomePage = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.labelUserInfo = new System.Windows.Forms.Label();
             this.buttonMin = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
@@ -45,6 +47,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,9 +69,9 @@
             this.panel1.Controls.Add(this.PictureBox1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseUp);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // buttonCheckIn
             // 
@@ -105,14 +108,35 @@
             // 
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(185)))), ((int)(((byte)(211)))));
+            this.panel2.Controls.Add(this.pictureBoxHomePage);
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.labelUserInfo);
             this.panel2.Controls.Add(this.buttonMin);
             this.panel2.Controls.Add(this.buttonExit);
             this.panel2.Controls.Add(this.buttonLogin);
             this.panel2.Name = "panel2";
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseDown);
-            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseMove);
-            this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseUp);
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
+            this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
+            // 
+            // pictureBoxHomePage
+            // 
+            this.pictureBoxHomePage.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources.home;
+            resources.ApplyResources(this.pictureBoxHomePage, "pictureBoxHomePage");
+            this.pictureBoxHomePage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxHomePage.Image = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources.home;
+            this.pictureBoxHomePage.Name = "pictureBoxHomePage";
+            this.pictureBoxHomePage.TabStop = false;
+            this.pictureBoxHomePage.Click += new System.EventHandler(this.pictureBoxHomePage_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(185)))), ((int)(((byte)(211)))));
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelUserInfo
             // 
@@ -147,12 +171,9 @@
             // 
             // panel3
             // 
-            this.panel3.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources._36427424_Mobile_apps_pattern_with_music_chat_gallery_speaking_bubble_email_magnifying_glass_shopping_search_n_Stock_Vector;
+            this.panel3.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources.background1;
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
-            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseDown);
-            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseMove);
-            this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainPanel_MouseUp);
             // 
             // FormHome
             // 
@@ -169,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);
 
@@ -189,6 +211,8 @@
         private System.Windows.Forms.Button buttonCheckIn;
         private System.Windows.Forms.Button buttonAlbums;
         private System.Windows.Forms.Button buttonInfo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBoxHomePage;
     }
 }
 
