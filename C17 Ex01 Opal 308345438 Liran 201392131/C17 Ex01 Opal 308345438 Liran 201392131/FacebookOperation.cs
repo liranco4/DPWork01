@@ -273,11 +273,20 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
         }
 
-        public FacebookObjectCollection<Checkin> FetchCheckIn()
+        public List<Page> FetchCheckIn()
         {
             if (m_User != null)
             {
-                return m_User.Checkins;
+                List<Page> o_Places = new List<Page>();
+
+                FacebookObjectCollection<Checkin> checkInList = m_User.Checkins;
+
+                foreach (Checkin checkIn in checkInList)
+                {
+                    o_Places.Add(checkIn.Place);
+                }
+
+                return o_Places;
             }
             else
             {

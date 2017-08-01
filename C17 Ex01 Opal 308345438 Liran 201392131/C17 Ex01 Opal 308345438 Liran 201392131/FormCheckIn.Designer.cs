@@ -41,7 +41,7 @@
             this.buttonFetchCheckIn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchCheckIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonFetchCheckIn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonFetchCheckIn.Location = new System.Drawing.Point(41, 26);
+            this.buttonFetchCheckIn.Location = new System.Drawing.Point(33, 12);
             this.buttonFetchCheckIn.Name = "buttonFetchCheckIn";
             this.buttonFetchCheckIn.Size = new System.Drawing.Size(187, 43);
             this.buttonFetchCheckIn.TabIndex = 5;
@@ -51,22 +51,22 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(434, 87);
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.webBrowser1.Location = new System.Drawing.Point(364, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(712, 534);
+            this.webBrowser1.Size = new System.Drawing.Size(835, 633);
             this.webBrowser1.TabIndex = 6;
             // 
             // listBoxCheckIn
             // 
             this.listBoxCheckIn.FormattingEnabled = true;
             this.listBoxCheckIn.ItemHeight = 16;
-            this.listBoxCheckIn.Location = new System.Drawing.Point(41, 87);
+            this.listBoxCheckIn.Location = new System.Drawing.Point(33, 61);
             this.listBoxCheckIn.Name = "listBoxCheckIn";
             this.listBoxCheckIn.Size = new System.Drawing.Size(325, 516);
             this.listBoxCheckIn.TabIndex = 7;
             this.listBoxCheckIn.SelectedIndexChanged += new System.EventHandler(this.listBoxCheckIn_SelectedIndexChanged);
-            // 
             // 
             // FormCheckIn
             // 
