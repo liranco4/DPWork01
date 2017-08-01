@@ -305,6 +305,27 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 throw new InvalidOperationException("User does not declared in the system");
             }
         }
+
+        public List<Page> FetchMusic()
+        {
+            if (m_User != null)
+            {
+                FacebookObjectCollection < Page > likedPagesList= m_User.LikedPages;
+                List<Page> o_MusicPages = new List<Page>();
+                foreach (Page likedPage in likedPagesList)
+                {
+                    if(likedPage.Category== "Musician/Band")
+                    {
+                        o_MusicPages.Add(likedPage);
+                    }
+                }
+                return o_MusicPages;
+            }
+            else
+            {
+                throw new InvalidOperationException("User does not declared in the system");
+            }
+        }
              
     }
 
