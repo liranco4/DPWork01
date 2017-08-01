@@ -75,12 +75,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             else
             {
                 
-                foreach(Video video in faceBookOperation.FetchUserVideos())
+                foreach(Video video in FacebookOp.FetchUserVideos())
                {
                    int x = 1;
                     listBox1.Items.Add(video.URL);
                }
-            }*/
+           }*/
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

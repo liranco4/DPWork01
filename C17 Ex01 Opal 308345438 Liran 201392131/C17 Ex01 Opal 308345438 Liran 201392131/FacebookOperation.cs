@@ -272,6 +272,30 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 throw new InvalidOperationException("User does not declared in the system");
             }
         }
+
+        public FacebookObjectCollection<Checkin> FetchCheckIn()
+        {
+            if (m_User != null)
+            {
+                return m_User.Checkins;
+            }
+            else
+            {
+                throw new InvalidOperationException("User does not declared in the system");
+            }
+        }
+
+        public int FetchCheckInCount()
+        {
+            if (m_User != null)
+            {
+                return m_User.Checkins.Count;
+            }
+            else
+            {
+                throw new InvalidOperationException("User does not declared in the system");
+            }
+        }
              
     }
 

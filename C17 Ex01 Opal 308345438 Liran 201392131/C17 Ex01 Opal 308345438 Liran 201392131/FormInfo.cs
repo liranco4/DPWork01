@@ -96,7 +96,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                MessageBox.Show(UsertDetails[0] + " has no post");
+                MessageBox.Show(UsertDetails[0] + " has no events");
             }
         }
 

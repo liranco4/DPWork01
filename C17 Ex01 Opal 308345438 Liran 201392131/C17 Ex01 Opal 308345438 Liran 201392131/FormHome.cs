@@ -103,26 +103,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             this.WindowState = FormWindowState.Minimized;
         }
 
-        /*private void mainPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            ToMove = true;
-            MValX = e.X+panel1.Width;
-            MValY = e.Y+panel2.Height;
-        }
-
-        private void mainPanel_MouseUp(object sender, MouseEventArgs e)
-        {
-            ToMove = false;
-        }
-
-        private void mainPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (ToMove)
-            {
-                this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
-            }
-        }*/
-
         private void buttonInfo_Click(object sender, EventArgs e)
         {
             if (!FacebookOp.isLoggedIn())
