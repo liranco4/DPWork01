@@ -57,11 +57,11 @@
     <Compile Include="FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAlbums.cs">
+    <Compile Include="FormMusics.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAlbums.Designer.cs">
-      <DependentUpon>FormAlbums.cs</DependentUpon>
+    <Compile Include="FormMusics.Designer.cs">
+      <DependentUpon>FormMusics.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCheckIn.cs">
       <SubType>Form</SubType>
@@ -80,8 +80,8 @@
     <EmbeddedResource Include="FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAlbums.resx">
-      <DependentUpon>FormAlbums.cs</DependentUpon>
+    <EmbeddedResource Include="FormMusics.resx">
+      <DependentUpon>FormMusics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCheckIn.resx">
       <DependentUpon>FormCheckIn.cs</DependentUpon>

@@ -134,7 +134,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                FormAlbums objForm = new FormAlbums(FacebookOp);
+                FormMusics objForm = new FormMusics(FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
