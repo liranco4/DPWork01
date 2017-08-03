@@ -151,7 +151,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;buttonLogin.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="buttonCheckIn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -310,10 +310,34 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="panel2.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="pictureBoxProfile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>732, 0</value>
+  </data>
+  <data name="pictureBoxProfile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="pictureBoxProfile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 57</value>
+  </data>
+  <data name="pictureBoxProfile.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxProfile.Name" xml:space="preserve">
+    <value>pictureBoxProfile</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxProfile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxProfile.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxProfile.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="pictureBoxHomePage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -340,7 +364,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pictureBoxHomePage.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -376,7 +400,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="labelUserInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -409,7 +433,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;labelUserInfo.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="buttonMin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -445,7 +469,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;buttonMin.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="buttonExit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -478,7 +502,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;buttonExit.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -505,31 +529,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="pictureBoxProfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>951, 28</value>
-  </data>
-  <data name="pictureBoxProfile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="pictureBoxProfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 102</value>
-  </data>
-  <data name="pictureBoxProfile.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProfile.Name" xml:space="preserve">
-    <value>pictureBoxProfile</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProfile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProfile.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProfile.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -559,7 +559,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -108,6 +108,7 @@
             // 
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(185)))), ((int)(((byte)(211)))));
+            this.panel2.Controls.Add(this.pictureBoxProfile);
             this.panel2.Controls.Add(this.pictureBoxHomePage);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.labelUserInfo);
@@ -180,7 +181,6 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources._36427424_Mobile_apps_pattern_with_music_chat_gallery_speaking_bubble_email_magnifying_glass_shopping_search_n_Stock_Vector;
-            this.Controls.Add(this.pictureBoxProfile);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
