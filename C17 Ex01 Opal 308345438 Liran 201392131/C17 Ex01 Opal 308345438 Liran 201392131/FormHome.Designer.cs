@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.buttonLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -36,19 +37,21 @@
             this.buttonInfo = new System.Windows.Forms.Button();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.pictureBoxHomePage = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.labelUserInfo = new System.Windows.Forms.Label();
             this.buttonMin = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -120,6 +123,13 @@
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
             // 
+            // pictureBoxProfile
+            // 
+            this.pictureBoxProfile.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            resources.ApplyResources(this.pictureBoxProfile, "pictureBoxProfile");
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.TabStop = false;
+            // 
             // pictureBoxHomePage
             // 
             this.pictureBoxHomePage.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources.home;
@@ -128,6 +138,7 @@
             this.pictureBoxHomePage.Image = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources.home;
             this.pictureBoxHomePage.Name = "pictureBoxHomePage";
             this.pictureBoxHomePage.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBoxHomePage, resources.GetString("pictureBoxHomePage.ToolTip"));
             this.pictureBoxHomePage.Click += new System.EventHandler(this.pictureBoxHomePage_Click);
             // 
             // button1
@@ -163,13 +174,6 @@
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // pictureBoxProfile
-            // 
-            this.pictureBoxProfile.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            resources.ApplyResources(this.pictureBoxProfile, "pictureBoxProfile");
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.TabStop = false;
-            // 
             // panel3
             // 
             this.panel3.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources.background1;
@@ -190,8 +194,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -213,6 +217,8 @@
         private System.Windows.Forms.Button buttonInfo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBoxHomePage;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }
 

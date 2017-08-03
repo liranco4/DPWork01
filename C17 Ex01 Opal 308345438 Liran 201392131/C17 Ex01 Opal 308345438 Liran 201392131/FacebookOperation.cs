@@ -14,7 +14,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private User m_User;
         private String m_AppID;
         private String m_AccessToken = null;
-
+        public event DelegateContainer.Informer<string> InformErrorMessegeFromLogicToUI; 
         public FacebookOperation(String i_AppID, int i_CollectionLimit, float i_FbApiVersion)
         {
             FacebookWrapper.FacebookService.s_CollectionLimit = i_CollectionLimit;
@@ -36,6 +36,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
+                    OnInformError("Cannot logged in");
                     o_LoginOperationSucceeded = false;
 
                     ///TODO inform with delegate to error message result.ErrorMessage
@@ -43,7 +44,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (Facebook.FacebookOAuthException exception)
             {
-                ///TODO inform with delegate to error message
+                OnInformError(exception.Message);
                 o_LoginOperationSucceeded = false;
             }
             return o_LoginOperationSucceeded;
@@ -324,6 +325,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             else
             {
                 throw new InvalidOperationException("User does not declared in the system");
+            }
+        }
+
+        private void OnInformError(string i_Messege)
+        {
+            if (this.InformErrorMessegeFromLogicToUI != null)
+            {
+                this.InformErrorMessegeFromLogicToUI.Invoke(i_Messege);
             }
         }
              
