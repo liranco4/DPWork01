@@ -25,7 +25,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             InitializeComponent();
 
            FacebookOp = new FacebookOperation("1752749615018089", 200, 20.5f);
-           FacebookOp.InformErrorMessegeFromLogicToUI += showErrorMessageFromLogic();
+           FacebookOp.InformErrorMessegeFromLogicToUI += showErrorMessageFromLogic;
             var imageSize = PictureBox1.Image.Size;
             var fitSize = PictureBox1.ClientSize;
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
@@ -88,10 +88,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 labelUserInfo.Text = "Hello " + userDetails[0] + " " + userDetails[1];
                 pictureBoxProfile.Show();
             }
-            else
-            {
-                MessageBox.Show("Cannot logged in");
-            }
+            //OPAL: we don't need the else any more we have delegate!!!
+            //else
+            //{
+            //    MessageBox.Show("Cannot logged in");
+            //}
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

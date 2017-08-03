@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FacebookOperation.cs" />
+    <Compile Include="DelegateContainer.cs" />
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>

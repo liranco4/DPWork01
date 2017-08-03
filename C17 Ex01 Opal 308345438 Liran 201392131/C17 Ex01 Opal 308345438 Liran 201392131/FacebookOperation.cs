@@ -28,6 +28,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             
             try
             {
+                //OPAL: if you want to see how the delegate work, you can enabled the following line
+                //throw new Facebook.FacebookOAuthException("hi i'm fake error");
                 LoginResult result = FacebookService.Login(m_AppID, i_RequestPermissions);
                 if (!string.IsNullOrEmpty(result.AccessToken))
                 {
