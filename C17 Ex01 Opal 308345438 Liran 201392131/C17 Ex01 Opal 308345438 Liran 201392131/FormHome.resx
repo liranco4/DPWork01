@@ -126,13 +126,13 @@
     <value>Segoe UI, 10.8pt</value>
   </data>
   <data name="buttonLogin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>42, 10</value>
+    <value>13, 11</value>
   </data>
   <data name="buttonLogin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="buttonLogin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 37</value>
+    <value>124, 46</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonLogin.TabIndex" type="System.Int32, mscorlib">
@@ -208,10 +208,10 @@
     <value>0, 0</value>
   </data>
   <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>238, 687</value>
+    <value>317, 846</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -238,13 +238,13 @@
     <value>NoControl</value>
   </data>
   <data name="buttonCheckIn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 387</value>
+    <value>40, 476</value>
   </data>
   <data name="buttonCheckIn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="buttonCheckIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 45</value>
+    <value>208, 55</value>
   </data>
   <data name="buttonCheckIn.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -274,13 +274,13 @@
     <value>NoControl</value>
   </data>
   <data name="buttonAlbums.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 277</value>
+    <value>40, 341</value>
   </data>
   <data name="buttonAlbums.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="buttonAlbums.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 45</value>
+    <value>208, 55</value>
   </data>
   <data name="buttonAlbums.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -307,13 +307,13 @@
     <value>Segoe UI, 13.8pt</value>
   </data>
   <data name="buttonInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 166</value>
+    <value>40, 204</value>
   </data>
   <data name="buttonInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="buttonInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 45</value>
+    <value>208, 55</value>
   </data>
   <data name="buttonInfo.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -334,13 +334,13 @@
     <value>2</value>
   </data>
   <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 28</value>
+    <value>72, 34</value>
   </data>
   <data name="PictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 29</value>
+    <value>176, 36</value>
   </data>
   <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
@@ -363,14 +363,17 @@
   <data name="panel2.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="pictureBoxProfile.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
   <data name="pictureBoxProfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>732, 0</value>
+    <value>984, 16</value>
   </data>
   <data name="pictureBoxProfile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="pictureBoxProfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 57</value>
+    <value>92, 89</value>
   </data>
   <data name="pictureBoxProfile.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -387,24 +390,24 @@
   <data name="&gt;&gt;pictureBoxProfile.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>181, 17</value>
+  </metadata>
   <data name="pictureBoxHomePage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="pictureBoxHomePage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>670, 15</value>
+    <value>915, 20</value>
   </data>
   <data name="pictureBoxHomePage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="pictureBoxHomePage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
+    <value>43, 39</value>
   </data>
   <data name="pictureBoxHomePage.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>181, 17</value>
-  </metadata>
   <data name="pictureBoxHomePage.ToolTip" xml:space="preserve">
     <value>Back to Home Page</value>
   </data>
@@ -430,13 +433,13 @@
     <value>NoControl</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 10</value>
+    <value>143, 11</value>
   </data>
   <data name="button1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 37</value>
+    <value>124, 46</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -466,13 +469,10 @@
     <value>NoControl</value>
   </data>
   <data name="labelUserInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 10</value>
-  </data>
-  <data name="labelUserInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>298, 20</value>
   </data>
   <data name="labelUserInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 26</value>
+    <value>0, 33</value>
   </data>
   <data name="labelUserInfo.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -499,13 +499,13 @@
     <value>NoControl</value>
   </data>
   <data name="buttonMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>838, 13</value>
+    <value>1117, 16</value>
   </data>
   <data name="buttonMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="buttonMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 34</value>
+    <value>37, 42</value>
   </data>
   <data name="buttonMin.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -532,13 +532,13 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>877, 13</value>
+    <value>1169, 16</value>
   </data>
   <data name="buttonExit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 34</value>
+    <value>37, 42</value>
   </data>
   <data name="buttonExit.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -562,13 +562,13 @@
     <value>Top</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 0</value>
+    <value>317, 0</value>
   </data>
   <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>940, 58</value>
+    <value>1254, 70</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -592,13 +592,13 @@
     <value>Fill</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 58</value>
+    <value>317, 70</value>
   </data>
   <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>940, 629</value>
+    <value>1254, 776</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -615,6 +615,9 @@
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>181, 17</value>
+  </metadata>
   <metadata name="toolTip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>278, 17</value>
   </metadata>
@@ -625,13 +628,13 @@
     <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1178, 687</value>
+    <value>1571, 846</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>

@@ -246,6 +246,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             MessageBox.Show(i_Message,"ERROR", MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
 
+        private void pictureBoxProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
     
 }
