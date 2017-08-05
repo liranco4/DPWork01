@@ -13,8 +13,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private bool m_isLogedIn = false;
         private User m_User;
         private String m_AppID;
-        private String m_AccessToken = null;
-        public event DelegateContainer.Informer<string> InformErrorMessegeFromLogicToUI; 
+        public String AccessToken {get; set;}
+        public event DelegateContainer.Informer<string> InformErrorMessegeFromLogicToUI;
+        
         public FacebookOperation(String i_AppID, int i_CollectionLimit, float i_FbApiVersion)
         {
             FacebookWrapper.FacebookService.s_CollectionLimit = i_CollectionLimit;
@@ -34,7 +35,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 if (!string.IsNullOrEmpty(result.AccessToken))
                 {
                     m_User = result.LoggedInUser;
-                    m_AccessToken = result.AccessToken;///TODO need to think about the expired time 60 days, how to handle it
+                    AccessToken = result.AccessToken;///TODO need to think about the expired time 60 days, how to handle it
                 }
                 else
                 {

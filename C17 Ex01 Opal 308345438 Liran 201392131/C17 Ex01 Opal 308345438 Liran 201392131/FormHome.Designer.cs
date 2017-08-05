@@ -37,21 +37,22 @@
             this.buttonInfo = new System.Windows.Forms.Button();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.pictureBoxHomePage = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.labelUserInfo = new System.Windows.Forms.Label();
             this.buttonMin = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.remeberMeCheckBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -111,6 +112,7 @@
             // 
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(185)))), ((int)(((byte)(211)))));
+            this.panel2.Controls.Add(this.remeberMeCheckBox);
             this.panel2.Controls.Add(this.pictureBoxProfile);
             this.panel2.Controls.Add(this.pictureBoxHomePage);
             this.panel2.Controls.Add(this.button1);
@@ -122,6 +124,13 @@
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
+            // 
+            // pictureBoxProfile
+            // 
+            this.pictureBoxProfile.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            resources.ApplyResources(this.pictureBoxProfile, "pictureBoxProfile");
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.TabStop = false;
             // 
             // pictureBoxHomePage
             // 
@@ -167,19 +176,18 @@
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // pictureBoxProfile
-            // 
-            this.pictureBoxProfile.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            resources.ApplyResources(this.pictureBoxProfile, "pictureBoxProfile");
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.TabStop = false;
-            this.pictureBoxProfile.Click += new System.EventHandler(this.pictureBoxProfile_Click);
-            // 
             // panel3
             // 
             this.panel3.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources.background1;
             resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
+            // 
+            // remeberMeCheckBox
+            // 
+            resources.ApplyResources(this.remeberMeCheckBox, "remeberMeCheckBox");
+            this.remeberMeCheckBox.Name = "remeberMeCheckBox";
+            this.remeberMeCheckBox.UseVisualStyleBackColor = true;
+            this.remeberMeCheckBox.CheckedChanged += new System.EventHandler(this.remeberMeCheckBox_CheckedChanged);
             // 
             // FormHome
             // 
@@ -195,8 +203,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHomePage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,6 +228,7 @@
         private System.Windows.Forms.PictureBox pictureBoxHomePage;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.CheckBox remeberMeCheckBox;
     }
 }
 

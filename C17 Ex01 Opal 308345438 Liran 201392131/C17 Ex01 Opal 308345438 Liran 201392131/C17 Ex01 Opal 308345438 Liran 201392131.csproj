@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="FacebookOperation.cs" />
     <Compile Include="DelegateContainer.cs" />
     <Compile Include="FormHome.cs">

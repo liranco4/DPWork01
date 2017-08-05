@@ -19,7 +19,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private int MValX { get; set; }
         private int MValY { get; set; }
         private Form CurrentForm { get; set; }
-       
+        private AppSettings AppSettings { get; set; }
         public FormHome()
         {
             InitializeComponent();
@@ -40,7 +40,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             List<string> userDetails;
-
+            try
+            {
+                this.AppSettings = AppSettings.LoadFromAppSettingsFile();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             if (FacebookOp.LoginToFaceBook("public_profile",
                 "user_education_history",
                 "user_birthday",
@@ -97,6 +104,17 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                this.AppSettings.LastWindowLocation = new Point(1200,1200);
+                this.AppSettings.LastWindowSize= new Size(200, 200);
+                this.AppSettings.LastAccessToken = FacebookOp.AccessToken;
+                AppSettings.SaveAppSettingToFile();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             Environment.Exit(0);
         }
 
@@ -249,6 +267,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void remeberMeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            AppSettings.RememberUser = true;
         }
 
     }
