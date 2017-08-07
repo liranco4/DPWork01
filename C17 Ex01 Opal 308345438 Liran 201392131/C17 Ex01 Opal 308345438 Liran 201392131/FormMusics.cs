@@ -24,7 +24,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             InitializeComponent();
             FacebookOp = i_FacebookOp;
             RegisterKey.SetWebBrowserVersion(m_BrowserVersion);
-
             try
             {
                 UsertDetails = FacebookOp.FetchUserBasicDetails();
@@ -42,7 +41,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 MusicPages = FacebookOp.FetchMusic();
                 listBoxFetchMusics.DisplayMember = "Name";
                 listBoxFetchMusics.DataSource = MusicPages;
-
                 if (MusicPages.Count() == 0)
                 {
                     MessageNotification.showWarningMessage(UsertDetails[0] + " has no Albums");
@@ -63,6 +61,5 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             url.Append(singerName[3]);
             webBrowserVideos.Navigate(url.ToString());
         }   
-       
     }
 }

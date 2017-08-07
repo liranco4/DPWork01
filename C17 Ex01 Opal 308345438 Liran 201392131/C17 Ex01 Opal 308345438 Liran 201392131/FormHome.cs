@@ -42,14 +42,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             List<string> userDetails;
-            //try
-            //{
-            //    this.AppSettings = AppSettings.LoadFromAppSettingsFile();
-            //}
-            //catch (Exception exception)
-            //{
-            //    MessageBox.Show(exception.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
             try
             {
                 if (FacebookOp.LoginToFaceBook("public_profile",
