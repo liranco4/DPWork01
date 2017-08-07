@@ -19,13 +19,15 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private int MValX { get; set; }
         private int MValY { get; set; }
         private Form CurrentForm { get; set; }
-        private AppSettings AppSettings { get; set; }
+        private const string m_AutenticationMessage = "You must login first";
+        private const string m_LoggedOutError = "You are not logged in";
+        private const string m_CannotLoggedInError = "Cannot log in";
+
         public FormHome()
         {
             InitializeComponent();
 
            FacebookOp = new FacebookOperation("1752749615018089", 200, 20.5f);
-           FacebookOp.InformErrorMessegeFromLogicToUI += showErrorMessageFromLogic;
             var imageSize = PictureBox1.Image.Size;
             var fitSize = PictureBox1.ClientSize;
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
@@ -40,15 +42,17 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             List<string> userDetails;
+            //try
+            //{
+            //    this.AppSettings = AppSettings.LoadFromAppSettingsFile();
+            //}
+            //catch (Exception exception)
+            //{
+            //    MessageBox.Show(exception.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             try
             {
-                this.AppSettings = AppSettings.LoadFromAppSettingsFile();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (FacebookOp.LoginToFaceBook("public_profile",
+                if (FacebookOp.LoginToFaceBook("public_profile",
                 "user_education_history",
                 "user_birthday",
                 "user_actions.video",
@@ -61,7 +65,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 "publish_actions",
                 "user_events",
                 "user_games_activity",
-                //"user_groups" (This permission is only available for apps using Graph API version v2.3 or older.)
+                    //"user_groups" (This permission is only available for apps using Graph API version v2.3 or older.)
                 "user_hometown",
                 "user_likes",
                 "user_location",
@@ -81,41 +85,33 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
                 // "read_mailbox", (This permission is only available for apps using Graph API version v2.3 or older.)
                 "read_page_mailboxes",
-                // "read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
-                // "manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
+                    // "read_stream", (This permission is only available for apps using Graph API version v2.3 or older.)
+                    // "manage_notifications", (This permission is only available for apps using Graph API version v2.3 or older.)
                 "manage_pages",
                 "publish_pages",
                 "publish_actions",
 
                 "rsvp_event"
                 ))
+                {
+                    userDetails = FacebookOp.FetchUserBasicDetails();
+                    pictureBoxProfile.Load(FacebookOp.FetchUserProfilePicture());
+                    labelUserInfo.Text = "Hello " + userDetails[0] + " " + userDetails[1];
+                    pictureBoxProfile.Show();
+                }
+                else
+                {
+                    MessageNotification.showErrorMessage(m_CannotLoggedInError);
+                }
+            }catch(Facebook.FacebookOAuthException exception)
             {
-                userDetails = FacebookOp.FetchUserBasicDetails();
-                pictureBoxProfile.Load(FacebookOp.FetchUserProfilePicture());
-                labelUserInfo.Text = "Hello " + userDetails[0] + " " + userDetails[1];
-                pictureBoxProfile.Show();
+                MessageNotification.showErrorMessage(exception.Message);
             }
-            //OPAL: we don't need the else any more we have delegate!!!
-            //else
-            //{
-            //    MessageBox.Show("Cannot logged in");
-            //}
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.AppSettings.LastWindowLocation = new Point(1200,1200);
-                this.AppSettings.LastWindowSize= new Size(200, 200);
-                this.AppSettings.LastAccessToken = FacebookOp.AccessToken;
-                AppSettings.SaveAppSettingToFile();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            Environment.Exit(0);
+            this.Close();
         }
 
         private void buttonMin_Click(object sender, EventArgs e)
@@ -127,7 +123,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!FacebookOp.isLoggedIn())
             {
-                MessageBox.Show("You must login first");
+                MessageNotification.showWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -150,7 +146,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!FacebookOp.isLoggedIn())
             {
-                MessageBox.Show("You must login first");
+                MessageNotification.showWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -173,7 +169,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!FacebookOp.isLoggedIn())
             {
-                MessageBox.Show("You must login first");
+                MessageNotification.showWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -192,7 +188,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonLogOut_Click(object sender, EventArgs e)
         {
             if(FacebookOp.isLoggedIn())
             {
@@ -207,7 +203,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                MessageBox.Show("You are not login");
+                MessageNotification.showErrorMessage(m_LoggedOutError);
             }
         }
 
@@ -257,21 +253,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             ToMove = true;
             MValX = e.X;
             MValY = e.Y;
-        }
-
-        protected void showErrorMessageFromLogic(string i_Message)
-        {
-            MessageBox.Show(i_Message,"ERROR", MessageBoxButtons.OK,MessageBoxIcon.Error);
-        }
-
-        private void pictureBoxProfile_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void remeberMeCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            AppSettings.RememberUser = true;
         }
 
     }

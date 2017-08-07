@@ -14,7 +14,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private User m_User;
         private String m_AppID;
         public String AccessToken {get; set;}
-        public event DelegateContainer.Informer<string> InformErrorMessegeFromLogicToUI;
         
         public FacebookOperation(String i_AppID, int i_CollectionLimit, float i_FbApiVersion)
         {
@@ -26,30 +25,16 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         public Boolean LoginToFaceBook(params string[] i_RequestPermissions)
         {
             Boolean o_LoginOperationSucceeded = true;
-            
-            try
-            {
-                //OPAL: if you want to see how the delegate work, you can enabled the following line
-                //throw new Facebook.FacebookOAuthException("hi i'm fake error");
                 LoginResult result = FacebookService.Login(m_AppID, i_RequestPermissions);
                 if (!string.IsNullOrEmpty(result.AccessToken))
                 {
                     m_User = result.LoggedInUser;
-                    AccessToken = result.AccessToken;///TODO need to think about the expired time 60 days, how to handle it
+                    AccessToken = result.AccessToken;
                 }
                 else
                 {
-                    OnInformError("Cannot logged in");
                     o_LoginOperationSucceeded = false;
-
-                    ///TODO inform with delegate to error message result.ErrorMessage
                 }
-            }
-            catch (Facebook.FacebookOAuthException exception)
-            {
-                OnInformError(exception.Message);
-                o_LoginOperationSucceeded = false;
-            }
             return o_LoginOperationSucceeded;
         }
 
@@ -329,16 +314,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 throw new InvalidOperationException("User does not declared in the system");
             }
-        }
-
-        private void OnInformError(string i_Messege)
-        {
-            if (this.InformErrorMessegeFromLogicToUI != null)
-            {
-                this.InformErrorMessegeFromLogicToUI.Invoke(i_Messege);
-            }
-        }
-             
+        }         
     }
 
 }

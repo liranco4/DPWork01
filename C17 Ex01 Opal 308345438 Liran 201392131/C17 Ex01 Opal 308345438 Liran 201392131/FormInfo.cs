@@ -26,7 +26,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Status Posted! ID: "+(FacebookOp.PostStatus(textBoxPost.Text)));
+            try
+            {
+                MessageBox.Show("Status Posted! ID: " + (FacebookOp.PostStatus(textBoxPost.Text)));
+            }
+            catch (InvalidOperationException exception)
+            {
+                MessageNotification.showErrorMessage(exception.Message);
+            }
             
         }
 
@@ -34,72 +41,113 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             listBoxFetchFriends.Items.Clear();
             listBoxFetchFriends.DisplayMember = "Name";
-
-            if (FacebookOp.FetchFriendCount() > 0)
+            try
             {
-                listBoxFetchFriends.DataSource = FacebookOp.FetchFriend();
+                if (FacebookOp.FetchFriendCount() > 0)
+                {
+                    listBoxFetchFriends.DataSource = FacebookOp.FetchFriend();
+                }
+                else
+                {
+                    UsertDetails = FacebookOp.FetchUserBasicDetails();
+                    MessageNotification.showWarningMessage(UsertDetails[0] + " has no friends");
+                }
             }
-            else
+            catch (InvalidOperationException exception)
             {
-                UsertDetails=FacebookOp.FetchUserBasicDetails();
-                MessageBox.Show(UsertDetails[0] + " has no friends");
+                MessageNotification.showErrorMessage(exception.Message);
             }
         }
 
         private void listBoxFetchFriends_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string picUrl = FacebookOp.FetchFriendProfilePicture((User)listBoxFetchFriends.SelectedItem);
-            pictureBoxFriendPic.Load(picUrl);
+            try
+            {
+                string picUrl = FacebookOp.FetchFriendProfilePicture((User)listBoxFetchFriends.SelectedItem);
+                pictureBoxFriendPic.Load(picUrl);
+            }
+            catch (InvalidOperationException exception)
+            {
+                MessageNotification.showErrorMessage(exception.Message);
+            }
         }
 
         private void buttonFetchLikedPages_Click(object sender, EventArgs e)
         {
 
             listBoxFetchLikedPages.Items.Clear();
-            listBoxFetchLikedPages.DisplayMember = "Name";//jjjj
+            listBoxFetchLikedPages.DisplayMember = "Name";
 
-            if(FacebookOp.FetchLikedPagesCount()>0)
+            try
             {
-                listBoxFetchLikedPages.DataSource = FacebookOp.FetchLikedPages();
+                if (FacebookOp.FetchLikedPagesCount() > 0)
+                {
+                    listBoxFetchLikedPages.DataSource = FacebookOp.FetchLikedPages();
+                }
+                else
+                {
+                    MessageNotification.showWarningMessage(UsertDetails[0] + " has no liked pages");
+                }
             }
-            else
+            catch (InvalidOperationException exception)
             {
-                MessageBox.Show(UsertDetails[0] + " has no liked pages");
+                MessageNotification.showErrorMessage(exception.Message);
             }
         }
 
         private void listBoxFetchLikedPages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string picUrl = FacebookOp.FetchLikedPagePicture((Page)listBoxFetchLikedPages.SelectedItem);
-            pictureBoxLikedPage.Load(picUrl);
+            try
+            {
+                string picUrl = FacebookOp.FetchLikedPagePicture((Page)listBoxFetchLikedPages.SelectedItem);
+                pictureBoxLikedPage.Load(picUrl);
+            }
+            catch (InvalidOperationException exception)
+            {
+                MessageNotification.showErrorMessage(exception.Message);
+            }
         }
 
         private void buttonFetchPost_Click(object sender, EventArgs e)
         {
-            if (FacebookOp.FetchPostsCount() > 0)
+            try
             {
-                listBoxFetchPost.DisplayMember = "Message";
-                listBoxFetchPost.DataSource = FacebookOp.FetchPosts();
+                if (FacebookOp.FetchPostsCount() > 0)
+                {
+                    listBoxFetchPost.DisplayMember = "Message";
+                    listBoxFetchPost.DataSource = FacebookOp.FetchPosts();
+                }
+                else
+                {
+                    MessageNotification.showWarningMessage(UsertDetails[0] + " has no post");
+                }
             }
-            else
+            catch (InvalidOperationException exception)
             {
-                MessageBox.Show(UsertDetails[0] + " has no post");
+                MessageNotification.showErrorMessage(exception.Message);
             }
         }
 
         private void buttonFetchEvents_Click(object sender, EventArgs e)
         {
-            if (FacebookOp.FetchEevntsCount() > 0)
+            try
             {
-                listBoxFetchEvents.DisplayMember = "Name";
-                listBoxFetchEvents.DataSource = FacebookOp.FetchEvents();
+                if (FacebookOp.FetchEevntsCount() > 0)
+                {
+                    listBoxFetchEvents.DisplayMember = "Name";
+                    listBoxFetchEvents.DataSource = FacebookOp.FetchEvents();
+                }
+                else
+                {
+                    MessageNotification.showWarningMessage(UsertDetails[0] + " has no events");
+                }
             }
-            else
+            catch (InvalidOperationException exception)
             {
-                MessageBox.Show(UsertDetails[0] + " has no events");
+                MessageNotification.showErrorMessage(exception.Message);
             }
         }
 
-
+       
     }
 }
