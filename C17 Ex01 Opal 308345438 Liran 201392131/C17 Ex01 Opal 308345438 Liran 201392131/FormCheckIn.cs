@@ -17,10 +17,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string m_WebUrl = "https://www.google.co.il/maps?q=";
         private const string m_Comma = ",";
         private const string m_Plus = "+";
-
-        private List<string> usertDetails { get; set; }
-
-        private FacebookOperation facebookOp { get; set; }
+        private List<string> m_UsertDetails;
+        private FacebookOperation m_FacebookOp;
 
         public FormCheckIn(FacebookOperation i_FacebookOp)
         {
@@ -28,11 +26,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
             RegisterKey.SetWebBrowserVersion(m_BrowserVersion);
 
-            facebookOp = i_FacebookOp;
+            m_FacebookOp = i_FacebookOp;
 
             try
             {
-                usertDetails = facebookOp.FetchUserBasicDetails();
+                m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
             }
             catch (InvalidOperationException exception)
             {
@@ -44,14 +42,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                if (facebookOp.FetchCheckInCount() > 0)
+                if (m_FacebookOp.FetchCheckInCount() > 0)
                 {
                     listBoxCheckIn.DisplayMember = "Name";
-                    listBoxCheckIn.DataSource = facebookOp.FetchCheckIn();
+                    listBoxCheckIn.DataSource = m_FacebookOp.FetchCheckIn();
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(usertDetails[0] + " has no Checkins");
+                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no Checkins");
                 }
             }
             catch (InvalidOperationException exception)

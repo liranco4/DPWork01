@@ -16,33 +16,27 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string m_AutenticationMessage = "You must login first";
         private const string m_LoggedOutError = "You are not logged in";
         private const string m_CannotLoggedInError = "Cannot log in";
-
-        private FacebookOperation facebookOp { get; set; }
-
-        private List<Panel> panelsList { get; set; }
-
-        private bool toMove { get; set; }
-
-        private int mValX { get; set; }
-
-        private int mValY { get; set; }
-
-        private Form currentForm { get; set; }
+        private FacebookOperation m_FacebookOp;
+        private List<Panel> m_PanelsList;
+        private bool m_ToMove;
+        private int m_MValX;
+        private int m_MValY;
+        private Form m_CurrentForm;
 
         public FormHome()
         {
             InitializeComponent();
 
-           facebookOp = new FacebookOperation("1752749615018089", 200, 20.5f);
+           m_FacebookOp = new FacebookOperation("1752749615018089", 200, 20.5f);
             var imageSize = PictureBox1.Image.Size;
             var fitSize = PictureBox1.ClientSize;
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
             pictureBoxProfile.BringToFront();
-            panelsList = new List<Panel>();
-            panelsList.Add(panel1);
-            panelsList.Add(panel2);
-            panelsList.Add(panel3);
+            m_PanelsList = new List<Panel>();
+            m_PanelsList.Add(panel1);
+            m_PanelsList.Add(panel2);
+            m_PanelsList.Add(panel3);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -50,7 +44,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             List<string> userDetails;
             try
             {
-                if (facebookOp.LoginToFaceBook(
+                if (m_FacebookOp.LoginToFaceBook(
                 "public_profile",
                 "user_actions.music",
                 "user_about_me",
@@ -72,8 +66,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 "publish_actions",
                 "rsvp_event"))
                 {
-                    userDetails = facebookOp.FetchUserBasicDetails();
-                    pictureBoxProfile.Load(facebookOp.FetchUserProfilePicture());
+                    userDetails = m_FacebookOp.FetchUserBasicDetails();
+                    pictureBoxProfile.Load(m_FacebookOp.FetchUserProfilePicture());
                     labelUserInfo.Text = "Hello " + userDetails[0] + " " + userDetails[1];
                     pictureBoxProfile.Show();
                 }
@@ -100,13 +94,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonInfo_Click(object sender, EventArgs e)
         {
-            if (!facebookOp.isLoggedIn())
+            if (!m_FacebookOp.isLoggedIn())
             {
                 MessageNotification.showWarningMessage(m_AutenticationMessage);
             }
             else
             {
-                FormInfo objForm = new FormInfo(facebookOp);
+                FormInfo objForm = new FormInfo(m_FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -123,13 +117,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonAlbums_Click(object sender, EventArgs e)
         {
-            if (!facebookOp.isLoggedIn())
+            if (!m_FacebookOp.isLoggedIn())
             {
                 MessageNotification.showWarningMessage(m_AutenticationMessage);
             }
             else
             {
-                FormMusics objForm = new FormMusics(facebookOp);
+                FormMusics objForm = new FormMusics(m_FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -146,13 +140,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonCheckIn_Click(object sender, EventArgs e)
         {
-            if (!facebookOp.isLoggedIn())
+            if (!m_FacebookOp.isLoggedIn())
             {
                 MessageNotification.showWarningMessage(m_AutenticationMessage);
             }
             else
             {
-                FormCheckIn objForm = new FormCheckIn(facebookOp);
+                FormCheckIn objForm = new FormCheckIn(m_FacebookOp);
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -169,9 +163,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            if(facebookOp.isLoggedIn())
+            if(m_FacebookOp.isLoggedIn())
             {
-                facebookOp.LogOut();
+                m_FacebookOp.LogOut();
                 pictureBoxProfile.Hide();
                 labelUserInfo.Text = string.Empty;
                 if (panel3.Controls.Count > 0)
@@ -196,42 +190,42 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void panel2_MouseUp(object sender, MouseEventArgs e)
         {
-            toMove = false;
+            m_ToMove = false;
         }
 
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
-            toMove = true;
-            mValX = e.X + panel1.Width;
-            mValY = e.Y;
+            m_ToMove = true;
+            m_MValX = e.X + panel1.Width;
+            m_MValY = e.Y;
         }
 
         private void panel2_MouseMove(object sender, MouseEventArgs e)
         {
-            if (toMove)
+            if (m_ToMove)
             {
-                this.SetDesktopLocation(MousePosition.X - mValX, MousePosition.Y - mValY);
+                this.SetDesktopLocation(MousePosition.X - m_MValX, MousePosition.Y - m_MValY);
             }
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
-            toMove = false;
+            m_ToMove = false;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (toMove)
+            if (m_ToMove)
             {
-                this.SetDesktopLocation(MousePosition.X - mValX, MousePosition.Y - mValY);
+                this.SetDesktopLocation(MousePosition.X - m_MValX, MousePosition.Y - m_MValY);
             }
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            toMove = true;
-            mValX = e.X;
-            mValY = e.Y;
+            m_ToMove = true;
+            m_MValX = e.X;
+            m_MValY = e.Y;
         }
     }    
 }

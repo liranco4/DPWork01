@@ -13,8 +13,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private bool m_isLogedIn = false;
         private User m_User;
         private string m_AppID;
-        
-        private string accessToken { get; set; }
+        private string m_AccessToken;
         
         public FacebookOperation(string i_AppID, int i_CollectionLimit, float i_FbApiVersion)
         {
@@ -30,7 +29,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
                 m_User = result.LoggedInUser;
-                accessToken = result.AccessToken;
+                m_AccessToken = result.AccessToken;
             }
             else
             {

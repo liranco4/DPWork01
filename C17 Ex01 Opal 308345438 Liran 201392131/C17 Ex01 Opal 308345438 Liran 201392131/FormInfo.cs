@@ -15,23 +15,21 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
     public partial class FormInfo : Form
     {
         private const string m_PagePicUrl = "page.png";
-
-        private FacebookOperation facebookOp { get; set; }
-
-        private List<string> usertDetails { get; set; }
+        private FacebookOperation m_FacebookOp;
+        private List<string> m_UsertDetails;
 
         public FormInfo(FacebookOperation i_FacebookOp)
         {
             InitializeComponent();
 
-            facebookOp = i_FacebookOp;
+            m_FacebookOp = i_FacebookOp;
         }
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
             try
             {
-                MessageBox.Show("Status Posted! ID: " + facebookOp.PostStatus(textBoxPost.Text));
+                MessageBox.Show("Status Posted! ID: " + m_FacebookOp.PostStatus(textBoxPost.Text));
             }
             catch (InvalidOperationException exception)
             {
@@ -45,14 +43,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             listBoxFetchFriends.DisplayMember = "Name";
             try
             {
-                if (facebookOp.FetchFriendCount() > 0)
+                if (m_FacebookOp.FetchFriendCount() > 0)
                 {
-                    listBoxFetchFriends.DataSource = facebookOp.FetchFriend();
+                    listBoxFetchFriends.DataSource = m_FacebookOp.FetchFriend();
                 }
                 else
                 {
-                    usertDetails = facebookOp.FetchUserBasicDetails();
-                    MessageNotification.showWarningMessage(usertDetails[0] + " has no friends");
+                    m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
+                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no friends");
                 }
             }
             catch (InvalidOperationException exception)
@@ -67,7 +65,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 if (listBoxFetchFriends.DataSource != null)
                 {
-                    string picUrl = facebookOp.FetchFriendProfilePicture((User)listBoxFetchFriends.SelectedItem);
+                    string picUrl = m_FacebookOp.FetchFriendProfilePicture((User)listBoxFetchFriends.SelectedItem);
                     pictureBoxFriendPic.Load(picUrl);
                 }
             }
@@ -84,13 +82,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
             try
             {
-                if (facebookOp.FetchLikedPagesCount() > 0)
+                if (m_FacebookOp.FetchLikedPagesCount() > 0)
                 {
-                    listBoxFetchLikedPages.DataSource = facebookOp.FetchLikedPages();
+                    listBoxFetchLikedPages.DataSource = m_FacebookOp.FetchLikedPages();
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(usertDetails[0] + " has no liked pages");
+                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no liked pages");
                 }
             }
             catch (InvalidOperationException exception)
@@ -105,7 +103,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 if (listBoxFetchLikedPages.DataSource != null)
                 {
-                    string picUrl = facebookOp.FetchLikedPagePicture((Page)listBoxFetchLikedPages.SelectedItem);
+                    string picUrl = m_FacebookOp.FetchLikedPagePicture((Page)listBoxFetchLikedPages.SelectedItem);
                     pictureBoxLikedPage.Load(picUrl);
                 }
             }
@@ -123,14 +121,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                if (facebookOp.FetchPostsCount() > 0)
+                if (m_FacebookOp.FetchPostsCount() > 0)
                 {
                     listBoxFetchPost.DisplayMember = "Message";
-                    listBoxFetchPost.DataSource = facebookOp.FetchPosts();
+                    listBoxFetchPost.DataSource = m_FacebookOp.FetchPosts();
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(usertDetails[0] + " has no post");
+                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no post");
                 }
             }
             catch (InvalidOperationException exception)
@@ -143,14 +141,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                if (facebookOp.FetchEevntsCount() > 0)
+                if (m_FacebookOp.FetchEevntsCount() > 0)
                 {
                     listBoxFetchEvents.DisplayMember = "Name";
-                    listBoxFetchEvents.DataSource = facebookOp.FetchEvents();
+                    listBoxFetchEvents.DataSource = m_FacebookOp.FetchEvents();
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(usertDetails[0] + " has no events");
+                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no events");
                 }
             }
             catch (InvalidOperationException exception)

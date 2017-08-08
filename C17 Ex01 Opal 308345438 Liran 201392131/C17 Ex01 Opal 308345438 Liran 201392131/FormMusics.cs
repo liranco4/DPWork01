@@ -15,21 +15,18 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
     {
         private const int m_BrowserVersion = 11001;
         private const string m_WebUrl = "https://www.youtube.com/results?search_query=";
-
-        private FacebookOperation facebookOp { get; set; }
-
-        private List<string> usertDetails { get; set; }
-
-        private List<Page> musicPages { get; set; }
+        private FacebookOperation m_FacebookOp;
+        private List<string> m_UsertDetails;
+        private List<Page> m_MusicPages;
 
         public FormMusics(FacebookOperation i_FacebookOp)
         {
             InitializeComponent();
-            facebookOp = i_FacebookOp;
+            m_FacebookOp = i_FacebookOp;
             RegisterKey.SetWebBrowserVersion(m_BrowserVersion);
             try
             {
-                usertDetails = facebookOp.FetchUserBasicDetails();
+                m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
             }
             catch (InvalidOperationException exception)
             {
@@ -41,13 +38,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                musicPages = facebookOp.FetchMusic();
+                m_MusicPages = m_FacebookOp.FetchMusic();
                 listBoxFetchMusics.DisplayMember = "Name";
-                listBoxFetchMusics.DataSource = musicPages;
+                listBoxFetchMusics.DataSource = m_MusicPages;
 
-                if (musicPages.Count() == 0)
+                if (m_MusicPages.Count() == 0)
                 {
-                    MessageNotification.showWarningMessage(usertDetails[0] + " has no Albums");
+                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no Albums");
                 }
             }
             catch (InvalidOperationException exception)
