@@ -117,6 +117,7 @@
   <ItemGroup>
     <Content Include="Resources\background.jpg" />
     <Content Include="Resources\background1.jpg" />
+    <Content Include="Resources\page.png" />
     <None Include="Resources\home.png" />
     <None Include="Resources\background11.jpg" />
   </ItemGroup>

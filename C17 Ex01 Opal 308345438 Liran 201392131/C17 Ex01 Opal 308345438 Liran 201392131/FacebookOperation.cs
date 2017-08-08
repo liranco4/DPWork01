@@ -12,35 +12,37 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
     {
         private bool m_isLogedIn = false;
         private User m_User;
-        private String m_AppID;
-        public String AccessToken {get; set;}
+        private string m_AppID;
         
-        public FacebookOperation(String i_AppID, int i_CollectionLimit, float i_FbApiVersion)
+        private string accessToken { get; set; }
+        
+        public FacebookOperation(string i_AppID, int i_CollectionLimit, float i_FbApiVersion)
         {
             FacebookWrapper.FacebookService.s_CollectionLimit = i_CollectionLimit;
             FacebookWrapper.FacebookService.s_FbApiVersion = i_FbApiVersion;
             m_AppID = i_AppID;
         }
 
-        public Boolean LoginToFaceBook(params string[] i_RequestPermissions)
+        public bool LoginToFaceBook(params string[] i_RequestPermissions)
         {
-            Boolean o_LoginOperationSucceeded = true;
-                LoginResult result = FacebookService.Login(m_AppID, i_RequestPermissions);
-                if (!string.IsNullOrEmpty(result.AccessToken))
-                {
-                    m_User = result.LoggedInUser;
-                    AccessToken = result.AccessToken;
-                }
-                else
-                {
-                    o_LoginOperationSucceeded = false;
-                }
+            bool o_LoginOperationSucceeded = true;
+            LoginResult result = FacebookService.Login(m_AppID, i_RequestPermissions);
+            if (!string.IsNullOrEmpty(result.AccessToken))
+            {
+                m_User = result.LoggedInUser;
+                accessToken = result.AccessToken;
+            }
+            else
+            {
+                o_LoginOperationSucceeded = false;
+            }
+
             return o_LoginOperationSucceeded;
         }
 
         public List<string> FetchUserBasicDetails()
         {
-            List<String> o_UserDetails;
+            List<string> o_UserDetails;
             if(m_User != null)
             {
                 o_UserDetails = new List<string>();
@@ -60,6 +62,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         public string FetchUserProfilePicture()
         {
             string o_ProfilePicture;
+
             if(m_User != null)
             {
                 o_ProfilePicture = m_User.PictureNormalURL;
@@ -68,6 +71,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 throw new InvalidOperationException("User does not declared in the system");
             }
+
             return o_ProfilePicture;
         }
 
@@ -83,6 +87,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 throw new InvalidOperationException("User does not declared in the system");
             }
+
             return o_UserAlbums;
         }
 
@@ -98,12 +103,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 throw new InvalidOperationException("User does not declared in the system");
             }
+
             return userVideos;
         }
 
         public bool isLoggedIn()
         {
-            if(m_User==null)
+            if(m_User == null)
             {
                 m_isLogedIn = false;
             }
@@ -117,7 +123,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         public string PostStatus(string i_StatusToPost)
         {
-
             if (m_User != null)
             {
                 Status o_PostedStatus = m_User.PostStatus(i_StatusToPost);
@@ -164,6 +169,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 throw new InvalidOperationException("User does not declared in the system");
             }
+
             return o_ProfilePicture;
         }
 
@@ -202,6 +208,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 throw new InvalidOperationException("User does not declared in the system");
             }
+
             return o_Picture;
         }
 
@@ -299,15 +306,16 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (m_User != null)
             {
-                FacebookObjectCollection < Page > likedPagesList= m_User.LikedPages;
+                FacebookObjectCollection<Page> likedPagesList = m_User.LikedPages;
                 List<Page> o_MusicPages = new List<Page>();
                 foreach (Page likedPage in likedPagesList)
                 {
-                    if(likedPage.Category== "Musician/Band")
+                    if(likedPage.Category == "Musician/Band")
                     {
                         o_MusicPages.Add(likedPage);
                     }
                 }
+
                 return o_MusicPages;
             }
             else
@@ -316,5 +324,4 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
         }         
     }
-
 }

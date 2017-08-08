@@ -90,6 +90,5 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ListBox listBoxCheckIn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,28 +14,29 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormInfo : Form
     {
-        private FacebookOperation FacebookOp { get; set; }
+        private const string m_PagePicUrl = "page.png";
 
-        List<string> UsertDetails { get; set; }
+        private FacebookOperation facebookOp { get; set; }
+
+        private List<string> usertDetails { get; set; }
 
         public FormInfo(FacebookOperation i_FacebookOp)
         {
             InitializeComponent();
 
-            FacebookOp = i_FacebookOp;
+            facebookOp = i_FacebookOp;
         }
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
             try
             {
-                MessageBox.Show("Status Posted! ID: " + (FacebookOp.PostStatus(textBoxPost.Text)));
+                MessageBox.Show("Status Posted! ID: " + facebookOp.PostStatus(textBoxPost.Text));
             }
             catch (InvalidOperationException exception)
             {
                 MessageNotification.showErrorMessage(exception.Message);
-            }
-            
+            }            
         }
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)
@@ -43,14 +45,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             listBoxFetchFriends.DisplayMember = "Name";
             try
             {
-                if (FacebookOp.FetchFriendCount() > 0)
+                if (facebookOp.FetchFriendCount() > 0)
                 {
-                    listBoxFetchFriends.DataSource = FacebookOp.FetchFriend();
+                    listBoxFetchFriends.DataSource = facebookOp.FetchFriend();
                 }
                 else
                 {
-                    UsertDetails = FacebookOp.FetchUserBasicDetails();
-                    MessageNotification.showWarningMessage(UsertDetails[0] + " has no friends");
+                    usertDetails = facebookOp.FetchUserBasicDetails();
+                    MessageNotification.showWarningMessage(usertDetails[0] + " has no friends");
                 }
             }
             catch (InvalidOperationException exception)
@@ -63,7 +65,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                string picUrl = FacebookOp.FetchFriendProfilePicture((User)listBoxFetchFriends.SelectedItem);
+                string picUrl = facebookOp.FetchFriendProfilePicture((User)listBoxFetchFriends.SelectedItem);
                 pictureBoxFriendPic.Load(picUrl);
             }
             catch (InvalidOperationException exception)
@@ -74,19 +76,18 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonFetchLikedPages_Click(object sender, EventArgs e)
         {
-
             listBoxFetchLikedPages.Items.Clear();
             listBoxFetchLikedPages.DisplayMember = "Name";
 
             try
             {
-                if (FacebookOp.FetchLikedPagesCount() > 0)
+                if (facebookOp.FetchLikedPagesCount() > 0)
                 {
-                    listBoxFetchLikedPages.DataSource = FacebookOp.FetchLikedPages();
+                    listBoxFetchLikedPages.DataSource = facebookOp.FetchLikedPages();
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(UsertDetails[0] + " has no liked pages");
+                    MessageNotification.showWarningMessage(usertDetails[0] + " has no liked pages");
                 }
             }
             catch (InvalidOperationException exception)
@@ -99,12 +100,16 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                string picUrl = FacebookOp.FetchLikedPagePicture((Page)listBoxFetchLikedPages.SelectedItem);
+                string picUrl = facebookOp.FetchLikedPagePicture((Page)listBoxFetchLikedPages.SelectedItem);
                 pictureBoxLikedPage.Load(picUrl);
             }
             catch (InvalidOperationException exception)
             {
                 MessageNotification.showErrorMessage(exception.Message);
+            }
+            catch (ArgumentException)
+            {
+                pictureBoxLikedPage.ImageLocation = m_PagePicUrl;
             }
         }
 
@@ -112,14 +117,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                if (FacebookOp.FetchPostsCount() > 0)
+                if (facebookOp.FetchPostsCount() > 0)
                 {
                     listBoxFetchPost.DisplayMember = "Message";
-                    listBoxFetchPost.DataSource = FacebookOp.FetchPosts();
+                    listBoxFetchPost.DataSource = facebookOp.FetchPosts();
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(UsertDetails[0] + " has no post");
+                    MessageNotification.showWarningMessage(usertDetails[0] + " has no post");
                 }
             }
             catch (InvalidOperationException exception)
@@ -132,22 +137,20 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                if (FacebookOp.FetchEevntsCount() > 0)
+                if (facebookOp.FetchEevntsCount() > 0)
                 {
                     listBoxFetchEvents.DisplayMember = "Name";
-                    listBoxFetchEvents.DataSource = FacebookOp.FetchEvents();
+                    listBoxFetchEvents.DataSource = facebookOp.FetchEvents();
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(UsertDetails[0] + " has no events");
+                    MessageNotification.showWarningMessage(usertDetails[0] + " has no events");
                 }
             }
             catch (InvalidOperationException exception)
             {
                 MessageNotification.showErrorMessage(exception.Message);
             }
-        }
-
-       
+        }       
     }
 }

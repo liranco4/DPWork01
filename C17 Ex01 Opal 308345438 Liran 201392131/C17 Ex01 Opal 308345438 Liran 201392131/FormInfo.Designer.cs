@@ -130,6 +130,7 @@
             this.pictureBoxLikedPage.Location = new System.Drawing.Point(638, 194);
             this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
             this.pictureBoxLikedPage.Size = new System.Drawing.Size(129, 111);
+            this.pictureBoxLikedPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLikedPage.TabIndex = 9;
             this.pictureBoxLikedPage.TabStop = false;
             // 
@@ -222,8 +223,6 @@
         private System.Windows.Forms.ListBox listBoxFetchPost;
         private System.Windows.Forms.Button buttonFetchPost;
         private System.Windows.Forms.ListBox listBoxFetchEvents;
-        private System.Windows.Forms.Button buttonFetchEvents;
-
-
+        private System.Windows.Forms.Button buttonFetchEvents;        
     }
 }
