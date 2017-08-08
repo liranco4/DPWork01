@@ -17,7 +17,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string m_WebUrl = "https://www.google.co.il/maps?q=";
         private const string m_Comma = ",";
         private const string m_Plus = "+";
-        private List<string> m_UsertDetails;
+        private List<string> m_UserDetails;
         private FacebookOperation m_FacebookOp;
 
         public FormCheckIn(FacebookOperation i_FacebookOp)
@@ -30,7 +30,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
             try
             {
-                m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
+                m_UserDetails = m_FacebookOp.FetchUserBasicDetails();
             }
             catch (InvalidOperationException exception)
             {
@@ -42,14 +42,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                if (m_FacebookOp.FetchCheckInCount() > 0)
+                listBoxCheckIn.DisplayMember = "Name";
+                listBoxCheckIn.DataSource = m_FacebookOp.FetchCheckIn();
+                if (m_FacebookOp.FetchCheckInCount() == 0)
                 {
-                    listBoxCheckIn.DisplayMember = "Name";
-                    listBoxCheckIn.DataSource = m_FacebookOp.FetchCheckIn();
-                }
-                else
-                {
-                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no Checkins");
+                    MessageNotification.ShowWarningMessage(m_UserDetails[0] + " has no Checkins");
                 }
             }
             catch (InvalidOperationException exception)
@@ -69,7 +66,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             urlLocation.Append(selectedEvent.Location.State + m_Comma + m_Plus);
             urlLocation.Append(selectedEvent.Location.Country + m_Comma + m_Plus);
             urlLocation.Append(selectedEvent.Location.Zip + m_Comma + m_Plus);
-
             webBrowser1.Navigate(urlLocation.ToString());
         }
     }
