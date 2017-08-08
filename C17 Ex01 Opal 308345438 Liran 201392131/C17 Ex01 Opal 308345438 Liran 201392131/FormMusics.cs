@@ -30,7 +30,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -44,12 +44,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
                 if (m_MusicPages.Count() == 0)
                 {
-                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no Albums");
+                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no Albums");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 

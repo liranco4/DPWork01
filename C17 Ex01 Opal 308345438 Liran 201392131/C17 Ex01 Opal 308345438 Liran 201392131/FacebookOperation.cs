@@ -74,38 +74,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             return o_ProfilePicture;
         }
 
-        public FacebookObjectCollection<Album> FetchUserAlbum()
-        {
-            FacebookObjectCollection<Album> o_UserAlbums = new FacebookObjectCollection<Album>();
-
-            if (m_User != null)
-            {
-                o_UserAlbums = m_User.Albums;
-            }
-            else
-            {
-                throw new InvalidOperationException("User does not declared in the system");
-            }
-
-            return o_UserAlbums;
-        }
-
-        public FacebookObjectCollection<Video> FetchUserVideos()
-        {
-            FacebookObjectCollection<Video> userVideos = new FacebookObjectCollection<Video>();
-
-            if (m_User != null)
-            {
-                userVideos = m_User.Videos;
-            }
-            else
-            {
-                throw new InvalidOperationException("User does not declared in the system");
-            }
-
-            return userVideos;
-        }
-
         public bool isLoggedIn()
         {
             if(m_User == null)

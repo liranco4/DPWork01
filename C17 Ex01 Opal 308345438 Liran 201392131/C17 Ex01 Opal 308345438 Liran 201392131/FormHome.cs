@@ -21,7 +21,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private bool m_ToMove;
         private int m_MValX;
         private int m_MValY;
-        private Form m_CurrentForm;
 
         public FormHome()
         {
@@ -73,12 +72,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                    MessageNotification.showErrorMessage(m_CannotLoggedInError);
+                    MessageNotification.ShowErrorMessage(m_CannotLoggedInError);
                 }
             }
             catch (Facebook.FacebookOAuthException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -96,7 +95,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookOp.isLoggedIn())
             {
-                MessageNotification.showWarningMessage(m_AutenticationMessage);
+                MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -119,7 +118,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookOp.isLoggedIn())
             {
-                MessageNotification.showWarningMessage(m_AutenticationMessage);
+                MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -142,7 +141,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookOp.isLoggedIn())
             {
-                MessageNotification.showWarningMessage(m_AutenticationMessage);
+                MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -176,7 +175,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                MessageNotification.showErrorMessage(m_LoggedOutError);
+                MessageNotification.ShowErrorMessage(m_LoggedOutError);
             }
         }
 

@@ -33,7 +33,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }            
         }
 
@@ -50,12 +50,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 else
                 {
                     m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
-                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no friends");
+                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no friends");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -71,7 +71,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -88,12 +88,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no liked pages");
+                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no liked pages");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -109,7 +109,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
             catch (ArgumentException)
             {
@@ -128,12 +128,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no post");
+                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no post");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -148,12 +148,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                    MessageNotification.showWarningMessage(m_UsertDetails[0] + " has no events");
+                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no events");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.showErrorMessage(exception.Message);
+                MessageNotification.ShowErrorMessage(exception.Message);
             }
         }       
     }
