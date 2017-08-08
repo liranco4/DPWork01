@@ -100,8 +100,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         }
 
         private void listBoxFetchLikedPages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+        {            
             try
             {
                 if (listBoxFetchLikedPages.DataSource != null)
