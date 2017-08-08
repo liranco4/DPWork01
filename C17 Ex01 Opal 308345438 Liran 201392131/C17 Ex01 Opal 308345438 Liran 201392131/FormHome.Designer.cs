@@ -98,7 +98,7 @@
             this.buttonAlbums.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonAlbums.Name = "buttonAlbums";
             this.buttonAlbums.UseVisualStyleBackColor = true;
-            this.buttonAlbums.Click += new System.EventHandler(this.buttonAlbums_Click);
+            this.buttonAlbums.Click += new System.EventHandler(this.buttonMusic_Click);
             // 
             // buttonInfo
             // 

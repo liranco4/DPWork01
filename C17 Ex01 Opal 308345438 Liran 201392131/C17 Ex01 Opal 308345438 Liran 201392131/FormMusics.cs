@@ -44,7 +44,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
                 if (m_MusicPages.Count() == 0)
                 {
-                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no Albums");
+                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no Music Pages");
                 }
             }
             catch (InvalidOperationException exception)
@@ -53,7 +53,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
         }
 
-        private void listBoxFetchAlbums_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxFetchMusic_SelectedIndexChanged(object sender, EventArgs e)
         {
             Page musicPage = listBoxFetchMusics.SelectedItem as Page;
             StringBuilder url = new StringBuilder();

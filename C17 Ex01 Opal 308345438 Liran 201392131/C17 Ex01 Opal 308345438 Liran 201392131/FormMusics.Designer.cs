@@ -54,7 +54,7 @@
             this.listBoxFetchMusics.Name = "listBoxFetchMusics";
             this.listBoxFetchMusics.Size = new System.Drawing.Size(259, 532);
             this.listBoxFetchMusics.TabIndex = 3;
-            this.listBoxFetchMusics.SelectedIndexChanged += new System.EventHandler(this.listBoxFetchAlbums_SelectedIndexChanged);
+            this.listBoxFetchMusics.SelectedIndexChanged += new System.EventHandler(this.listBoxFetchMusic_SelectedIndexChanged);
             // 
             // buttonFetchMusics
             // 

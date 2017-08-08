@@ -114,7 +114,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
         }
 
-        private void buttonAlbums_Click(object sender, EventArgs e)
+        private void buttonMusic_Click(object sender, EventArgs e)
         {
             if (!m_FacebookOp.isLoggedIn())
             {
