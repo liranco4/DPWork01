@@ -41,7 +41,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)
         {
-            listBoxFetchFriends.Items.Clear();
+            listBoxFetchFriends.DataSource = null;
             listBoxFetchFriends.DisplayMember = "Name";
             try
             {
@@ -65,8 +65,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                string picUrl = facebookOp.FetchFriendProfilePicture((User)listBoxFetchFriends.SelectedItem);
-                pictureBoxFriendPic.Load(picUrl);
+                if (listBoxFetchFriends.DataSource != null)
+                {
+                    string picUrl = facebookOp.FetchFriendProfilePicture((User)listBoxFetchFriends.SelectedItem);
+                    pictureBoxFriendPic.Load(picUrl);
+                }
             }
             catch (InvalidOperationException exception)
             {
@@ -76,7 +79,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonFetchLikedPages_Click(object sender, EventArgs e)
         {
-            listBoxFetchLikedPages.Items.Clear();
+            listBoxFetchLikedPages.DataSource = null;
             listBoxFetchLikedPages.DisplayMember = "Name";
 
             try
@@ -98,10 +101,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void listBoxFetchLikedPages_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             try
             {
-                string picUrl = facebookOp.FetchLikedPagePicture((Page)listBoxFetchLikedPages.SelectedItem);
-                pictureBoxLikedPage.Load(picUrl);
+                if (listBoxFetchLikedPages.DataSource != null)
+                {
+                    string picUrl = facebookOp.FetchLikedPagePicture((Page)listBoxFetchLikedPages.SelectedItem);
+                    pictureBoxLikedPage.Load(picUrl);
+                }
             }
             catch (InvalidOperationException exception)
             {
