@@ -101,7 +101,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -116,9 +115,10 @@
     <None Include="Resources\facebook.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Exercise Checking Report.txt" />
     <Content Include="Resources\background.jpg" />
     <Content Include="Resources\background1.jpg" />
-    <Content Include="Resources\page.png" />
+    <None Include="Resources\page.png" />
     <None Include="Resources\home.png" />
     <None Include="Resources\background11.jpg" />
   </ItemGroup>

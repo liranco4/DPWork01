@@ -14,7 +14,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormInfo : Form
     {
-        private const string m_PagePicUrl = "page.png";
         private FacebookOperation m_FacebookOp;
         private List<string> m_UsertDetails;
 
@@ -113,7 +112,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (ArgumentException)
             {
-                pictureBoxLikedPage.ImageLocation = m_PagePicUrl;
+                pictureBoxLikedPage.Image = Properties.Resources.page;
             }
         }
 
