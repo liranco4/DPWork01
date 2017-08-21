@@ -25,12 +25,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         public FormHome()
         {
             InitializeComponent();
-
-           m_FacebookOp = new FacebookOperation("1752749615018089", 200, 20.5f);
+            FacebookOperation.AppID = "1752749615018089";
+            m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
             var imageSize = PictureBox1.Image.Size;
             var fitSize = PictureBox1.ClientSize;
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
-                PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
+            PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
             pictureBoxProfile.BringToFront();
             m_PanelsList = new List<Panel>();
             m_PanelsList.Add(panel1);
@@ -79,6 +79,10 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 MessageNotification.ShowErrorMessage(exception.Message);
             }
+            catch (ArgumentNullException exception)
+            {
+                MessageNotification.ShowErrorMessage(exception.Message);
+            }
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -99,7 +103,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                FormInfo objForm = new FormInfo(m_FacebookOp);
+                FormInfo objForm = new FormInfo();
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -122,7 +126,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                FormMusics objForm = new FormMusics(m_FacebookOp);
+                FormMusics objForm = new FormMusics();
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -145,7 +149,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                FormCheckIn objForm = new FormCheckIn(m_FacebookOp);
+                FormCheckIn objForm = new FormCheckIn();
                 objForm.TopLevel = false;
                 panel3.Controls.Add(objForm);
                 objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -19,10 +19,10 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private List<string> m_UsertDetails;
         private List<Page> m_MusicPages;
 
-        public FormMusics(FacebookOperation i_FacebookOp)
+        public FormMusics()
         {
             InitializeComponent();
-            m_FacebookOp = i_FacebookOp;
+            m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
             RegisterKey.SetWebBrowserVersion(m_BrowserVersion);
             try
             {

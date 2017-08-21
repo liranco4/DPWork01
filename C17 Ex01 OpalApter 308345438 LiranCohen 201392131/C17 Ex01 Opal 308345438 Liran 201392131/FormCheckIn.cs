@@ -20,13 +20,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private List<string> m_UserDetails;
         private FacebookOperation m_FacebookOp;
 
-        public FormCheckIn(FacebookOperation i_FacebookOp)
+        public FormCheckIn()
         {
             InitializeComponent();
 
             RegisterKey.SetWebBrowserVersion(m_BrowserVersion);
 
-            m_FacebookOp = i_FacebookOp;
+            m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
 
             try
             {

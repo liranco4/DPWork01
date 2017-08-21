@@ -12,20 +12,59 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
     {
         private bool m_isLogedIn = false;
         private User m_User;
-        private string m_AppID;
         private string m_AccessToken;
+        private static FacebookOperation m_InstanceFacebookOperation = null;
+        public static string AppID = null;
         
-        public FacebookOperation(string i_AppID, int i_CollectionLimit, float i_FbApiVersion)
+        private FacebookOperation(){
+            CollectionLimit = 100;
+            FbApiVersion = 20.5f;
+        }
+        
+        public static FacebookOperation InstanceFacebookOperation
         {
-            FacebookWrapper.FacebookService.s_CollectionLimit = i_CollectionLimit;
-            FacebookWrapper.FacebookService.s_FbApiVersion = i_FbApiVersion;
-            m_AppID = i_AppID;
+            get
+            {
+                if (m_InstanceFacebookOperation == null)
+                {
+                    m_InstanceFacebookOperation = new FacebookOperation();
+                }
+                return m_InstanceFacebookOperation;
+            }
         }
 
+        public int CollectionLimit
+        {
+            get
+            {
+                return FacebookService.s_CollectionLimit;
+            }
+            set
+            {
+                FacebookService.s_CollectionLimit = value;
+            }
+        }
+       
+        public float  FbApiVersion
+       {
+            get
+            {
+                return FacebookService.s_FbApiVersion;
+            }
+            set
+            {
+                FacebookService.s_FbApiVersion = value;
+            }
+          }
+       
         public bool LoginToFaceBook(params string[] i_RequestPermissions)
         {
+            if (AppID == null)
+            {
+                throw new ArgumentNullException("AppID not defined");
+            }
             bool o_LoginOperationSucceeded = true;
-            LoginResult result = FacebookService.Login(m_AppID, i_RequestPermissions);
+            LoginResult result = FacebookService.Login(AppID, i_RequestPermissions);
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
                 m_User = result.LoggedInUser;
