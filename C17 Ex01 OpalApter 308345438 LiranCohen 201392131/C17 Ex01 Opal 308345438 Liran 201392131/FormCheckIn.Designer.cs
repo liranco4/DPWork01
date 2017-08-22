@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonFetchCheckIn = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.webCheckINBrowserProxy = new WebBrowserProxy(11001);
             this.listBoxCheckIn = new System.Windows.Forms.ListBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
@@ -51,12 +51,12 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.webBrowser1.Location = new System.Drawing.Point(364, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(835, 633);
-            this.webBrowser1.TabIndex = 6;
+            this.webCheckINBrowserProxy.Dock = System.Windows.Forms.DockStyle.Right;
+            this.webCheckINBrowserProxy.Location = new System.Drawing.Point(364, 0);
+            this.webCheckINBrowserProxy.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webCheckINBrowserProxy.Name = "webBrowser1";
+            this.webCheckINBrowserProxy.Size = new System.Drawing.Size(835, 633);
+            this.webCheckINBrowserProxy.TabIndex = 6;
             // 
             // listBoxCheckIn
             // 
@@ -75,7 +75,7 @@
             this.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources._36427424_Mobile_apps_pattern_with_music_chat_gallery_speaking_bubble_email_magnifying_glass_shopping_search_n_Stock_Vector;
             this.ClientSize = new System.Drawing.Size(1199, 633);
             this.Controls.Add(this.listBoxCheckIn);
-            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.webCheckINBrowserProxy);
             this.Controls.Add(this.buttonFetchCheckIn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCheckIn";
@@ -87,7 +87,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonFetchCheckIn;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private WebBrowserProxy webCheckINBrowserProxy;
         private System.Windows.Forms.ListBox listBoxCheckIn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
