@@ -13,8 +13,10 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormMusics : Form
     {
-        private const int m_BrowserVersion = 11001;
-        private const string m_WebUrl = "https://www.youtube.com/results?search_query=";
+        private const string k_Error = "ERROR";
+        private const string k_Warning = "WARNING";
+        private const int k_BrowserVersion = 11001;
+        private const string k_WebUrl = "https://www.youtube.com/results?search_query=";
         private FacebookOperation m_FacebookOp;
         private List<string> m_UsertDetails;
         private List<Page> m_MusicPages;
@@ -23,14 +25,15 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             InitializeComponent();
             m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
-            RegisterKey.SetWebBrowserVersion(m_BrowserVersion);
+            RegisterKey.SetWebBrowserVersion(k_BrowserVersion);
             try
             {
                 m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -44,12 +47,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
                 if (m_MusicPages.Count() == 0)
                 {
-                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no Music Pages");
+                    FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no Music Pages", k_Warning);
+                    //MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no Music Pages");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -58,7 +63,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             Page musicPage = listBoxFetchMusics.SelectedItem as Page;
             StringBuilder url = new StringBuilder();
             string[] singerName = musicPage.URL.Split('/');
-            url.Append(m_WebUrl);
+            url.Append(k_WebUrl);
             url.Append(singerName[3]);
             webBrowserVideos.Navigate(url.ToString());
         }   

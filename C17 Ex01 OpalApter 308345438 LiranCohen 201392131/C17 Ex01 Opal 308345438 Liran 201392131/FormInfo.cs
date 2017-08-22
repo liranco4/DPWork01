@@ -14,7 +14,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormInfo : Form
     {
-        private const string m_PagePicUrl = "page.png";
+        private const string k_Error = "ERROR";
+        private const string k_Warning = "WARNING";
+        private const string k_PagePicUrl = "page.png";
         private FacebookOperation m_FacebookOp;
         private List<string> m_UsertDetails;
 
@@ -33,7 +35,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
             }            
         }
 
@@ -50,12 +52,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 else
                 {
                     m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
-                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no friends");
+                    FactoryMessageNotification.CreateMessage(m_UsertDetails[0]+"has no friends", k_Warning);
+                    //MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no friends");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -71,7 +75,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -88,12 +93,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no liked pages");
+                    FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no liked pages", k_Warning);
+                    //MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no liked pages");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -109,11 +116,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
             catch (ArgumentException)
             {
-                pictureBoxLikedPage.ImageLocation = m_PagePicUrl;
+                pictureBoxLikedPage.ImageLocation = k_PagePicUrl;
             }
         }
 
@@ -128,12 +136,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no post");
+                    FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no post", k_Warning);
+                    //MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no post");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -148,12 +158,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                    MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no events");
+                    FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no events", k_Warning);
+                    //MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no events");
                 }
             }
             catch (InvalidOperationException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }       
     }

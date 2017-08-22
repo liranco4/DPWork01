@@ -13,9 +13,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public partial class FormHome : Form
     {
-        private const string m_AutenticationMessage = "You must login first";
-        private const string m_LoggedOutError = "You are not logged in";
-        private const string m_CannotLoggedInError = "Cannot log in";
+        private const string k_Error = "ERROR";
+        private const string k_Warning = "WARNING";
+        private const string k_AutenticationMessage = "You must login first";
+        private const string k_LoggedOutError = "You are not logged in";
+        private const string k_CannotLoggedInError = "Cannot log in";
         private FacebookOperation m_FacebookOp;
         private List<Panel> m_PanelsList;
         private bool m_ToMove;
@@ -72,16 +74,20 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                    MessageNotification.ShowErrorMessage(m_CannotLoggedInError);
+
+                  FactoryMessageNotification.CreateMessage(k_CannotLoggedInError, k_Error);
+                 //   MessageNotification.ShowErrorMessage(m_CannotLoggedInError);
                 }
             }
             catch (Facebook.FacebookOAuthException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
             catch (ArgumentNullException exception)
             {
-                MessageNotification.ShowErrorMessage(exception.Message);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -99,7 +105,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookOp.isLoggedIn())
             {
-                MessageNotification.ShowWarningMessage(m_AutenticationMessage);
+                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
+                //MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -122,7 +129,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookOp.isLoggedIn())
             {
-                MessageNotification.ShowWarningMessage(m_AutenticationMessage);
+                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
+                //MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -145,7 +153,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookOp.isLoggedIn())
             {
-                MessageNotification.ShowWarningMessage(m_AutenticationMessage);
+                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
+                //MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -179,7 +188,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                MessageNotification.ShowErrorMessage(m_LoggedOutError);
+                FactoryMessageNotification.CreateMessage(k_LoggedOutError, k_Error);
+               // MessageNotification.ShowErrorMessage(m_LoggedOutError);
             }
         }
 
