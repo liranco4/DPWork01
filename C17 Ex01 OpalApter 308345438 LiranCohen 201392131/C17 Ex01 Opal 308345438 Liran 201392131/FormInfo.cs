@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
+using System.Threading;
 
 namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
@@ -41,13 +42,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)
         {
-            listBoxFetchFriends.DataSource = null;
+            //listBoxFetchFriends.DataSource = null;
             listBoxFetchFriends.DisplayMember = "Name";
             try
             {
                 if (m_FacebookOp.FetchFriendCount() > 0)
                 {
-                    listBoxFetchFriends.DataSource = m_FacebookOp.FetchFriend();
+                    new Thread(() => listBoxFetchFriends.Invoke(new Action(() => friendListBindingSource.DataSource = m_FacebookOp.FetchFriend()))).Start();
+                    //listBoxFetchFriends.DataSource = m_FacebookOp.FetchFriend();
                 }
                 else
                 {
@@ -167,6 +169,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
                 //MessageNotification.ShowErrorMessage(exception.Message);
             }
-        }       
+        }
+  
     }
 }
