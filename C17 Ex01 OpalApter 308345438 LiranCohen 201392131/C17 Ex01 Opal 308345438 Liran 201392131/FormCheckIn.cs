@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
+using System.Threading;
+
 
 namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
@@ -42,18 +44,29 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                listBoxCheckIn.DisplayMember = "Name";
-                listBoxCheckIn.DataSource = m_FacebookOp.FetchCheckIn();
-                if (m_FacebookOp.FetchCheckInCount() == 0)
+                /*listBoxCheckIn.DisplayMember = "Name";
+                listBoxCheckIn.DataSource = m_FacebookOp.FetchCheckIn();*/
+
+                new Thread(ShowCheckIns).Start();
+
+                /*if (m_FacebookOp.FetchCheckInCount() == 0)
                 {
                     FactoryMessageNotification.CreateMessage(m_UserDetails[0] + " has no Checkins", k_Warning);
-                    //MessageNotification.ShowWarningMessage(m_UserDetails[0] + " has no Checkins");
-                }
+                }*/
             }
             catch (InvalidOperationException exception)
             {
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
-                //MessageNotification.ShowErrorMessage(exception.Message);
+            }
+        }
+
+        private void ShowCheckIns()
+        {
+            listBoxCheckIn.Invoke(new Action(() => checkinBindingSource.DataSource = m_FacebookOp.FetchCheckIn()));
+
+            if (m_FacebookOp.FetchCheckInCount() == 0)
+            {
+                FactoryMessageNotification.CreateMessage(m_UserDetails[0] + " has no Checkins", k_Warning);
             }
         }
 

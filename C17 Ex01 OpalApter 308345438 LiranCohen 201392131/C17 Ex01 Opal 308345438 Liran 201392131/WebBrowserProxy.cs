@@ -7,10 +7,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     class WebBrowserProxy : System.Windows.Forms.WebBrowser
     {
+        private const int k_BrowserVersion = 11001;
         private System.Windows.Forms.WebBrowser m_WebBrowser;
-        public WebBrowserProxy(int i_Version)
+
+        public WebBrowserProxy()
         {
-            setRegistryDword(i_Version);
+            setRegistryDword(k_BrowserVersion);
         }
 
         private void setRegistryDword(int i_Version)

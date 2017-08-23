@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonFetchCheckIn = new System.Windows.Forms.Button();
-            this.webCheckINBrowserProxy = new WebBrowserProxy(11001);
+            this.webCheckINBrowserProxy = new C17_Ex01_Opal_308345438_Liran_201392131.WebBrowserProxy();
             this.listBoxCheckIn = new System.Windows.Forms.ListBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.checkinBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.checkinBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonFetchCheckIn
@@ -49,17 +52,19 @@
             this.buttonFetchCheckIn.UseVisualStyleBackColor = false;
             this.buttonFetchCheckIn.Click += new System.EventHandler(this.buttonFetchCheckIn_Click);
             // 
-            // webBrowser1
+            // webCheckINBrowserProxy
             // 
             this.webCheckINBrowserProxy.Dock = System.Windows.Forms.DockStyle.Right;
             this.webCheckINBrowserProxy.Location = new System.Drawing.Point(364, 0);
             this.webCheckINBrowserProxy.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webCheckINBrowserProxy.Name = "webBrowser1";
+            this.webCheckINBrowserProxy.Name = "webCheckINBrowserProxy";
             this.webCheckINBrowserProxy.Size = new System.Drawing.Size(835, 633);
             this.webCheckINBrowserProxy.TabIndex = 6;
             // 
             // listBoxCheckIn
             // 
+            this.listBoxCheckIn.DataSource = this.checkinBindingSource;
+            this.listBoxCheckIn.DisplayMember = "Name";
             this.listBoxCheckIn.FormattingEnabled = true;
             this.listBoxCheckIn.ItemHeight = 16;
             this.listBoxCheckIn.Location = new System.Drawing.Point(33, 61);
@@ -67,6 +72,10 @@
             this.listBoxCheckIn.Size = new System.Drawing.Size(325, 516);
             this.listBoxCheckIn.TabIndex = 7;
             this.listBoxCheckIn.SelectedIndexChanged += new System.EventHandler(this.listBoxCheckIn_SelectedIndexChanged);
+            // 
+            // checkinBindingSource
+            // 
+            this.checkinBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Checkin);
             // 
             // FormCheckIn
             // 
@@ -80,6 +89,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCheckIn";
             this.Text = "FormCheckIn";
+            ((System.ComponentModel.ISupportInitialize)(this.checkinBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,5 +100,6 @@
         private WebBrowserProxy webCheckINBrowserProxy;
         private System.Windows.Forms.ListBox listBoxCheckIn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.BindingSource checkinBindingSource;
     }
 }
