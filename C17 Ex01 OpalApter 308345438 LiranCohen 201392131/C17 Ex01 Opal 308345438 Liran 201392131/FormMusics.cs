@@ -25,7 +25,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             InitializeComponent();
             m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
-            RegisterKey.SetWebBrowserVersion(k_BrowserVersion);
             try
             {
                 m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
@@ -65,7 +64,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             string[] singerName = musicPage.URL.Split('/');
             url.Append(k_WebUrl);
             url.Append(singerName[3]);
-            webBrowserVideos.Navigate(url.ToString());
+            webBrowserVideosProxy.Navigate(url.ToString());
         }   
     }
 }

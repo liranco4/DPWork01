@@ -15,7 +15,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
     {
         private const string k_Error = "ERROR";
         private const string k_Warning = "WARNING";
-        private const int k_BrowserVersion = 11001; 
         private const string k_WebUrl = "https://www.google.co.il/maps?q=";
         private const string k_Comma = ",";
         private const string k_Plus = "+";
@@ -25,8 +24,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         public FormCheckIn()
         {
             InitializeComponent();
-
-            RegisterKey.SetWebBrowserVersion(k_BrowserVersion);
 
             m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
 
@@ -71,7 +68,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             urlLocation.Append(selectedEvent.Location.State + k_Comma + k_Plus);
             urlLocation.Append(selectedEvent.Location.Country + k_Comma + k_Plus);
             urlLocation.Append(selectedEvent.Location.Zip + k_Comma + k_Plus);
-            webBrowser1.Navigate(urlLocation.ToString());
+            webCheckINBrowserProxy.Navigate(urlLocation.ToString());
         }
     }
 }

@@ -31,7 +31,7 @@
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.listBoxFetchMusics = new System.Windows.Forms.ListBox();
             this.buttonFetchMusics = new System.Windows.Forms.Button();
-            this.webBrowserVideos = new System.Windows.Forms.WebBrowser();
+            this.webBrowserVideosProxy = new WebBrowserProxy(11001);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -74,13 +74,13 @@
             // 
             // webBrowserVideos
             // 
-            this.webBrowserVideos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.webBrowserVideos.Location = new System.Drawing.Point(592, 0);
-            this.webBrowserVideos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.webBrowserVideos.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowserVideos.Name = "webBrowserVideos";
-            this.webBrowserVideos.Size = new System.Drawing.Size(887, 679);
-            this.webBrowserVideos.TabIndex = 7;
+            this.webBrowserVideosProxy.Dock = System.Windows.Forms.DockStyle.Right;
+            this.webBrowserVideosProxy.Location = new System.Drawing.Point(592, 0);
+            this.webBrowserVideosProxy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.webBrowserVideosProxy.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowserVideosProxy.Name = "webBrowserVideos";
+            this.webBrowserVideosProxy.Size = new System.Drawing.Size(887, 679);
+            this.webBrowserVideosProxy.TabIndex = 7;
             // 
             // label1
             // 
@@ -119,7 +119,7 @@
             this.ClientSize = new System.Drawing.Size(1479, 679);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.webBrowserVideos);
+            this.Controls.Add(this.webBrowserVideosProxy);
             this.Controls.Add(this.buttonFetchMusics);
             this.Controls.Add(this.listBoxFetchMusics);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -137,7 +137,7 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.ListBox listBoxFetchMusics;
         private System.Windows.Forms.Button buttonFetchMusics;
-        private System.Windows.Forms.WebBrowser webBrowserVideos;
+        private WebBrowserProxy webBrowserVideosProxy;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
