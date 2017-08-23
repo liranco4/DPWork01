@@ -43,7 +43,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private void buttonFetchFriends_Click(object sender, EventArgs e)
         {
             //listBoxFetchFriends.DataSource = null;
-            listBoxFetchFriends.DisplayMember = "Name";
+            //listBoxFetchFriends.DisplayMember = "Name";
             try
             {
                 if (m_FacebookOp.FetchFriendCount() > 0)
@@ -155,8 +155,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 if (m_FacebookOp.FetchEevntsCount() > 0)
                 {
-                    listBoxFetchEvents.DisplayMember = "Name";
-                    listBoxFetchEvents.DataSource = m_FacebookOp.FetchEvents();
+                    /*listBoxFetchEvents.DisplayMember = "Name";
+                    listBoxFetchEvents.DataSource = m_FacebookOp.FetchEvents();*/
+                    new Thread(() => listBoxFetchEvents.Invoke(new Action(() => eventBindingSource.DataSource = m_FacebookOp.FetchEvents()))).Start();
                 }
                 else
                 {

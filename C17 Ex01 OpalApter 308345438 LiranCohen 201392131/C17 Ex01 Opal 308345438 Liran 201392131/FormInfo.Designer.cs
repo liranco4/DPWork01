@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label endTimeLabel;
+            System.Windows.Forms.Label startTimeLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInfo));
             this.textBoxPost = new System.Windows.Forms.TextBox();
             this.buttonPost = new System.Windows.Forms.Button();
             this.listBoxFetchFriends = new System.Windows.Forms.ListBox();
+            this.friendListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonFetchFriends = new System.Windows.Forms.Button();
             this.pictureBoxFriendPic = new System.Windows.Forms.PictureBox();
             this.listBoxFetchLikedPages = new System.Windows.Forms.ListBox();
@@ -39,14 +44,41 @@
             this.listBoxFetchPost = new System.Windows.Forms.ListBox();
             this.buttonFetchPost = new System.Windows.Forms.Button();
             this.listBoxFetchEvents = new System.Windows.Forms.ListBox();
+            this.eventBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonFetchEvents = new System.Windows.Forms.Button();
+            this.endTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.startTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            endTimeLabel = new System.Windows.Forms.Label();
+            startTimeLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.friendListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // endTimeLabel
+            // 
+            endTimeLabel.AutoSize = true;
+            endTimeLabel.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            endTimeLabel.Location = new System.Drawing.Point(971, 259);
+            endTimeLabel.Name = "endTimeLabel";
+            endTimeLabel.Size = new System.Drawing.Size(82, 24);
+            endTimeLabel.TabIndex = 15;
+            endTimeLabel.Text = "End Time:";
+            // 
+            // startTimeLabel
+            // 
+            startTimeLabel.AutoSize = true;
+            startTimeLabel.Font = new System.Drawing.Font("Segoe Print", 7.8F);
+            startTimeLabel.Location = new System.Drawing.Point(971, 293);
+            startTimeLabel.Name = "startTimeLabel";
+            startTimeLabel.Size = new System.Drawing.Size(92, 24);
+            startTimeLabel.TabIndex = 19;
+            startTimeLabel.Text = "Start Time:";
             // 
             // textBoxPost
             // 
-            this.textBoxPost.Location = new System.Drawing.Point(97, 37);
+            this.textBoxPost.Location = new System.Drawing.Point(57, 49);
             this.textBoxPost.Multiline = true;
             this.textBoxPost.Name = "textBoxPost";
             this.textBoxPost.Size = new System.Drawing.Size(823, 107);
@@ -59,7 +91,7 @@
             this.buttonPost.Font = new System.Drawing.Font("Segoe UI", 13.8F);
             this.buttonPost.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonPost.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonPost.Location = new System.Drawing.Point(947, 101);
+            this.buttonPost.Location = new System.Drawing.Point(907, 113);
             this.buttonPost.Name = "buttonPost";
             this.buttonPost.Size = new System.Drawing.Size(142, 43);
             this.buttonPost.TabIndex = 2;
@@ -69,13 +101,19 @@
             // 
             // listBoxFetchFriends
             // 
+            this.listBoxFetchFriends.DataSource = this.friendListBindingSource;
+            this.listBoxFetchFriends.DisplayMember = "Name";
             this.listBoxFetchFriends.FormattingEnabled = true;
             this.listBoxFetchFriends.ItemHeight = 16;
-            this.listBoxFetchFriends.Location = new System.Drawing.Point(97, 311);
+            this.listBoxFetchFriends.Location = new System.Drawing.Point(57, 323);
             this.listBoxFetchFriends.Name = "listBoxFetchFriends";
             this.listBoxFetchFriends.Size = new System.Drawing.Size(288, 404);
             this.listBoxFetchFriends.TabIndex = 3;
             this.listBoxFetchFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFetchFriends_SelectedIndexChanged);
+            // 
+            // friendListBindingSource
+            // 
+            this.friendListBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.FriendList);
             // 
             // buttonFetchFriends
             // 
@@ -84,7 +122,7 @@
             this.buttonFetchFriends.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchFriends.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonFetchFriends.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonFetchFriends.Location = new System.Drawing.Point(97, 262);
+            this.buttonFetchFriends.Location = new System.Drawing.Point(57, 274);
             this.buttonFetchFriends.Name = "buttonFetchFriends";
             this.buttonFetchFriends.Size = new System.Drawing.Size(142, 43);
             this.buttonFetchFriends.TabIndex = 4;
@@ -94,7 +132,7 @@
             // 
             // pictureBoxFriendPic
             // 
-            this.pictureBoxFriendPic.Location = new System.Drawing.Point(256, 194);
+            this.pictureBoxFriendPic.Location = new System.Drawing.Point(216, 206);
             this.pictureBoxFriendPic.Name = "pictureBoxFriendPic";
             this.pictureBoxFriendPic.Size = new System.Drawing.Size(129, 111);
             this.pictureBoxFriendPic.TabIndex = 6;
@@ -104,7 +142,7 @@
             // 
             this.listBoxFetchLikedPages.FormattingEnabled = true;
             this.listBoxFetchLikedPages.ItemHeight = 16;
-            this.listBoxFetchLikedPages.Location = new System.Drawing.Point(479, 311);
+            this.listBoxFetchLikedPages.Location = new System.Drawing.Point(439, 323);
             this.listBoxFetchLikedPages.Name = "listBoxFetchLikedPages";
             this.listBoxFetchLikedPages.Size = new System.Drawing.Size(288, 404);
             this.listBoxFetchLikedPages.TabIndex = 7;
@@ -117,7 +155,7 @@
             this.buttonFetchLikedPages.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchLikedPages.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonFetchLikedPages.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonFetchLikedPages.Location = new System.Drawing.Point(479, 262);
+            this.buttonFetchLikedPages.Location = new System.Drawing.Point(439, 274);
             this.buttonFetchLikedPages.Name = "buttonFetchLikedPages";
             this.buttonFetchLikedPages.Size = new System.Drawing.Size(142, 43);
             this.buttonFetchLikedPages.TabIndex = 8;
@@ -127,7 +165,7 @@
             // 
             // pictureBoxLikedPage
             // 
-            this.pictureBoxLikedPage.Location = new System.Drawing.Point(638, 194);
+            this.pictureBoxLikedPage.Location = new System.Drawing.Point(598, 206);
             this.pictureBoxLikedPage.Name = "pictureBoxLikedPage";
             this.pictureBoxLikedPage.Size = new System.Drawing.Size(129, 111);
             this.pictureBoxLikedPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -138,9 +176,9 @@
             // 
             this.listBoxFetchPost.FormattingEnabled = true;
             this.listBoxFetchPost.ItemHeight = 16;
-            this.listBoxFetchPost.Location = new System.Drawing.Point(848, 311);
+            this.listBoxFetchPost.Location = new System.Drawing.Point(797, 563);
             this.listBoxFetchPost.Name = "listBoxFetchPost";
-            this.listBoxFetchPost.Size = new System.Drawing.Size(361, 164);
+            this.listBoxFetchPost.Size = new System.Drawing.Size(389, 164);
             this.listBoxFetchPost.TabIndex = 10;
             // 
             // buttonFetchPost
@@ -150,7 +188,7 @@
             this.buttonFetchPost.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchPost.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonFetchPost.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonFetchPost.Location = new System.Drawing.Point(848, 262);
+            this.buttonFetchPost.Location = new System.Drawing.Point(797, 514);
             this.buttonFetchPost.Name = "buttonFetchPost";
             this.buttonFetchPost.Size = new System.Drawing.Size(142, 43);
             this.buttonFetchPost.TabIndex = 11;
@@ -160,12 +198,18 @@
             // 
             // listBoxFetchEvents
             // 
+            this.listBoxFetchEvents.DataSource = this.eventBindingSource;
+            this.listBoxFetchEvents.DisplayMember = "Name";
             this.listBoxFetchEvents.FormattingEnabled = true;
             this.listBoxFetchEvents.ItemHeight = 16;
-            this.listBoxFetchEvents.Location = new System.Drawing.Point(848, 551);
+            this.listBoxFetchEvents.Location = new System.Drawing.Point(797, 323);
             this.listBoxFetchEvents.Name = "listBoxFetchEvents";
-            this.listBoxFetchEvents.Size = new System.Drawing.Size(361, 164);
+            this.listBoxFetchEvents.Size = new System.Drawing.Size(389, 164);
             this.listBoxFetchEvents.TabIndex = 12;
+            // 
+            // eventBindingSource
+            // 
+            this.eventBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Event);
             // 
             // buttonFetchEvents
             // 
@@ -174,7 +218,7 @@
             this.buttonFetchEvents.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFetchEvents.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonFetchEvents.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonFetchEvents.Location = new System.Drawing.Point(848, 502);
+            this.buttonFetchEvents.Location = new System.Drawing.Point(797, 274);
             this.buttonFetchEvents.Name = "buttonFetchEvents";
             this.buttonFetchEvents.Size = new System.Drawing.Size(142, 43);
             this.buttonFetchEvents.TabIndex = 13;
@@ -182,12 +226,36 @@
             this.buttonFetchEvents.UseVisualStyleBackColor = false;
             this.buttonFetchEvents.Click += new System.EventHandler(this.buttonFetchEvents_Click);
             // 
+            // endTimeDateTimePicker
+            // 
+            this.endTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "EndTime", true));
+            this.endTimeDateTimePicker.Font = new System.Drawing.Font("Segoe Print", 7.8F);
+            this.endTimeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.endTimeDateTimePicker.Location = new System.Drawing.Point(1069, 253);
+            this.endTimeDateTimePicker.Name = "endTimeDateTimePicker";
+            this.endTimeDateTimePicker.Size = new System.Drawing.Size(117, 30);
+            this.endTimeDateTimePicker.TabIndex = 16;
+            // 
+            // startTimeDateTimePicker
+            // 
+            this.startTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.eventBindingSource, "StartTime", true));
+            this.startTimeDateTimePicker.Font = new System.Drawing.Font("Segoe Print", 7.8F);
+            this.startTimeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.startTimeDateTimePicker.Location = new System.Drawing.Point(1069, 287);
+            this.startTimeDateTimePicker.Name = "startTimeDateTimePicker";
+            this.startTimeDateTimePicker.Size = new System.Drawing.Size(117, 30);
+            this.startTimeDateTimePicker.TabIndex = 20;
+            // 
             // FormInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::C17_Ex01_Opal_308345438_Liran_201392131.Properties.Resources._36427424_Mobile_apps_pattern_with_music_chat_gallery_speaking_bubble_email_magnifying_glass_shopping_search_n_Stock_Vector;
-            this.ClientSize = new System.Drawing.Size(1235, 727);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1286, 735);
+            this.Controls.Add(endTimeLabel);
+            this.Controls.Add(this.endTimeDateTimePicker);
+            this.Controls.Add(startTimeLabel);
+            this.Controls.Add(this.startTimeDateTimePicker);
             this.Controls.Add(this.buttonFetchEvents);
             this.Controls.Add(this.listBoxFetchEvents);
             this.Controls.Add(this.buttonFetchPost);
@@ -203,8 +271,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormInfo";
             this.Text = "FormInfo";
+            ((System.ComponentModel.ISupportInitialize)(this.friendListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriendPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLikedPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eventBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,6 +293,10 @@
         private System.Windows.Forms.ListBox listBoxFetchPost;
         private System.Windows.Forms.Button buttonFetchPost;
         private System.Windows.Forms.ListBox listBoxFetchEvents;
-        private System.Windows.Forms.Button buttonFetchEvents;        
+        private System.Windows.Forms.Button buttonFetchEvents;
+        private System.Windows.Forms.BindingSource friendListBindingSource;
+        private System.Windows.Forms.BindingSource eventBindingSource;
+        private System.Windows.Forms.DateTimePicker endTimeDateTimePicker;
+        private System.Windows.Forms.DateTimePicker startTimeDateTimePicker;        
     }
 }
