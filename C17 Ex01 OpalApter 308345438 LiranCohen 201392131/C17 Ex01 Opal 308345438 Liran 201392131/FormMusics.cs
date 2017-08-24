@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using System.Threading;
 
 namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
@@ -40,20 +41,20 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                m_MusicPages = m_FacebookOp.FetchMusic();
+                /*m_MusicPages = m_FacebookOp.FetchMusic();
                 listBoxFetchMusics.DisplayMember = "Name";
-                listBoxFetchMusics.DataSource = m_MusicPages;
+                listBoxFetchMusics.DataSource = m_MusicPages;*/
 
-                if (m_MusicPages.Count() == 0)
+                new Thread(ShowMusicPages).Start();
+
+                /*if (m_MusicPages.Count() == 0)
                 {
                     FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no Music Pages", k_Warning);
-                    //MessageNotification.ShowWarningMessage(m_UsertDetails[0] + " has no Music Pages");
-                }
+                }*/
             }
             catch (InvalidOperationException exception)
             {
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
-                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -66,5 +67,17 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             url.Append(singerName[3]);
             webBrowserVideosProxy.Navigate(url.ToString());
         }   
+
+        private void ShowMusicPages()
+        {
+            m_MusicPages = m_FacebookOp.FetchMusic();
+
+            listBoxFetchMusics.Invoke(new Action(() => pageBindingSource.DataSource = m_MusicPages));
+
+            if (m_MusicPages.Count() == 0)
+            {
+                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no Music Pages", k_Warning);
+            }
+        }
     }
 }
