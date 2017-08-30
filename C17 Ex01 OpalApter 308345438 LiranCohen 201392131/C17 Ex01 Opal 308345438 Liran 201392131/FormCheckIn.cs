@@ -21,13 +21,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string k_Comma = ",";
         private const string k_Plus = "+";
         private List<string> m_UserDetails;
-        private FacebookService m_FacebookOp;
+        private FacebookAppService m_FacebookOp;
 
         public FormCheckIn()
         {
             InitializeComponent();
 
-            m_FacebookOp = FacebookService.InstanceFacebookOperation;
+            m_FacebookOp = FacebookAppService.InstanceFacebookOperation;
 
             try
             {

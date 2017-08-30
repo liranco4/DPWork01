@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorMessage.cs" />
-    <Compile Include="FacebookOperation.cs" />
+    <Compile Include="FacebookService.cs" />
     <Compile Include="FactoryMessageNotification.cs" />
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
