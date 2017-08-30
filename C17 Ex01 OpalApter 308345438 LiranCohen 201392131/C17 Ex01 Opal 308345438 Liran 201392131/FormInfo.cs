@@ -18,13 +18,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string k_Error = "ERROR";
         private const string k_Warning = "WARNING";
         private const string k_PagePicUrl = "page.png";
-        private FacebookOperation m_FacebookOp;
+        private FacebookService m_FacebookOp;
         private List<string> m_UsertDetails;
 
         public FormInfo()
         {
             InitializeComponent();
-            m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
+            m_FacebookOp = FacebookService.InstanceFacebookOperation;
         }
 
         private void buttonPost_Click(object sender, EventArgs e)

@@ -18,7 +18,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string k_AutenticationMessage = "You must login first";
         private const string k_LoggedOutError = "You are not logged in";
         private const string k_CannotLoggedInError = "Cannot log in";
-        private FacebookOperation m_FacebookOp;
+        private FacebookService m_FacebookOp;
         private List<Panel> m_PanelsList;
         private bool m_ToMove;
         private int m_MValX;
@@ -27,8 +27,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         public FormHome()
         {
             InitializeComponent();
-            FacebookOperation.AppID = "1752749615018089";
-            m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
+            FacebookService.AppID = "1752749615018089";
+            m_FacebookOp = FacebookService.InstanceFacebookOperation;
             var imageSize = PictureBox1.Image.Size;
             var fitSize = PictureBox1.ClientSize;
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?

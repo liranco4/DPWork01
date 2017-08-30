@@ -8,26 +8,26 @@ using FacebookWrapper;
 
 namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
-    public class FacebookOperation
+    public class FacebookService
     {
         private bool m_isLogedIn = false;
         private User m_User;
         private string m_AccessToken;
-        private static FacebookOperation m_InstanceFacebookOperation = null;
+        private static FacebookService m_InstanceFacebookOperation = null;
         public static string AppID = null;
         
-        private FacebookOperation(){
+        private FacebookService(){
             CollectionLimit = 100;
             FbApiVersion = 20.5f;
         }
         
-        public static FacebookOperation InstanceFacebookOperation
+        public static FacebookService InstanceFacebookOperation
         {
             get
             {
                 if (m_InstanceFacebookOperation == null)
                 {
-                    m_InstanceFacebookOperation = new FacebookOperation();
+                    m_InstanceFacebookOperation = new FacebookService();
                 }
                 return m_InstanceFacebookOperation;
             }

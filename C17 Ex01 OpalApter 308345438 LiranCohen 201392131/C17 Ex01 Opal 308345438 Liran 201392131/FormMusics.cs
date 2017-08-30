@@ -18,14 +18,14 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string k_Warning = "WARNING";
         private const int k_BrowserVersion = 11001;
         private const string k_WebUrl = "https://www.youtube.com/results?search_query=";
-        private FacebookOperation m_FacebookOp;
+        private FacebookService m_FacebookOp;
         private List<string> m_UsertDetails;
         private List<Page> m_MusicPages;
 
         public FormMusics()
         {
             InitializeComponent();
-            m_FacebookOp = FacebookOperation.InstanceFacebookOperation;
+            m_FacebookOp = FacebookService.InstanceFacebookOperation;
             try
             {
                 m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
