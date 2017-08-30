@@ -36,7 +36,11 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             catch (InvalidOperationException exception)
             {
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
-            }            
+            }
+            catch (ArgumentException exception)
+            {
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+            }
         }
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)
