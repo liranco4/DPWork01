@@ -17,14 +17,16 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 case k_Error:
                     {
-                        new ErrorMessage(i_Message);
+                        new ErrorMessage(i_Message);                      
                         break;
                     }
+
                 case k_Warning:
                     {
                         new WarningMessage(i_Message);
                         break;
                     }
+
                 default:
                     {
                         throw new ArgumentException("Illegal Message");

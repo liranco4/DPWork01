@@ -18,7 +18,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string k_AutenticationMessage = "You must login first";
         private const string k_LoggedOutError = "You are not logged in";
         private const string k_CannotLoggedInError = "Cannot log in";
-        private FacebookAppService m_FacebookOp;
+        private SingletonFacebookAppService m_FacebookAppService;
         private List<Panel> m_PanelsList;
         private bool m_ToMove;
         private int m_MValX;
@@ -27,8 +27,8 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         public FormHome()
         {
             InitializeComponent();
-            FacebookAppService.AppID = "1752749615018089";
-            m_FacebookOp = FacebookAppService.InstanceFacebookOperation;
+            SingletonFacebookAppService.AppID = "1752749615018089";
+            m_FacebookAppService = SingletonFacebookAppService.GetInstanceFacebookServices;
             var imageSize = PictureBox1.Image.Size;
             var fitSize = PictureBox1.ClientSize;
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
@@ -45,7 +45,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             List<string> userDetails;
             try
             {
-                if (m_FacebookOp.LoginToFaceBook(
+                if (m_FacebookAppService.LoginToFaceBook(
                 "public_profile",
                 "user_actions.music",
                 "user_about_me",
@@ -67,27 +67,23 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 "publish_actions",
                 "rsvp_event"))
                 {
-                    userDetails = m_FacebookOp.FetchUserBasicDetails();
-                    pictureBoxProfile.Load(m_FacebookOp.FetchUserProfilePicture());
+                    userDetails = m_FacebookAppService.FetchUserBasicDetails();
+                    pictureBoxProfile.Load(m_FacebookAppService.FetchUserProfilePicture());
                     labelUserInfo.Text = "Hello " + userDetails[0] + " " + userDetails[1];
                     pictureBoxProfile.Show();
                 }
                 else
                 {
-
                   FactoryMessageNotification.CreateMessage(k_CannotLoggedInError, k_Error);
-                 //   MessageNotification.ShowErrorMessage(m_CannotLoggedInError);
                 }
             }
             catch (Facebook.FacebookOAuthException exception)
             {
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
-                //MessageNotification.ShowErrorMessage(exception.Message);
             }
             catch (ArgumentNullException exception)
             {
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
-                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -103,10 +99,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonInfo_Click(object sender, EventArgs e)
         {
-            if (!m_FacebookOp.isLoggedIn())
+            if (!m_FacebookAppService.isLoggedIn())
             {
                 FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
-                //MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -127,10 +122,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonMusic_Click(object sender, EventArgs e)
         {
-            if (!m_FacebookOp.isLoggedIn())
+            if (!m_FacebookAppService.isLoggedIn())
             {
                 FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
-                //MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -151,10 +145,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonCheckIn_Click(object sender, EventArgs e)
         {
-            if (!m_FacebookOp.isLoggedIn())
+            if (!m_FacebookAppService.isLoggedIn())
             {
                 FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
-                //MessageNotification.ShowWarningMessage(m_AutenticationMessage);
             }
             else
             {
@@ -175,9 +168,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            if(m_FacebookOp.isLoggedIn())
+            if(m_FacebookAppService.isLoggedIn())
             {
-                m_FacebookOp.LogOut();
+                m_FacebookAppService.LogOut();
                 pictureBoxProfile.Hide();
                 labelUserInfo.Text = string.Empty;
                 if (panel3.Controls.Count > 0)
@@ -189,7 +182,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             else
             {
                 FactoryMessageNotification.CreateMessage(k_LoggedOutError, k_Error);
-               // MessageNotification.ShowErrorMessage(m_LoggedOutError);
             }
         }
 

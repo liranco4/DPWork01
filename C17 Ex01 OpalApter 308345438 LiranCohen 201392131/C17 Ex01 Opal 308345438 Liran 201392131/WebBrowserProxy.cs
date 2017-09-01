@@ -5,7 +5,7 @@ using System.Text;
 
 namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
-    class WebBrowserProxy : System.Windows.Forms.WebBrowser
+    public class WebBrowserProxy : System.Windows.Forms.WebBrowser
     {
         private const int k_BrowserVersion = 11001;
 
@@ -27,9 +27,9 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             {
                 key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(key64bit, Microsoft.Win32.RegistryKeyPermissionCheck.ReadWriteSubTree);
             }
+
             key.SetValue(appName, i_Version, Microsoft.Win32.RegistryValueKind.DWord);
             key.Close();
         }
-
     }
 }

@@ -8,39 +8,46 @@ using FacebookWrapper;
 
 namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
-    public class FacebookAppService
+    public class SingletonFacebookAppService
     {
-        private bool m_isLogedIn = false;
-        private User m_User;
-        private string m_AccessToken;
-        private static FacebookAppService m_InstanceFacebookOperation = null;
-        public static string AppID = null;
-        public int CollectionLimit { get; set; }
-        public float FbApiVersion{ get; set;}
+        private static SingletonFacebookAppService m_InstanceFacebookServices = null;
 
-        private FacebookAppService(){
-            CollectionLimit = 100;
-            FbApiVersion = 20.5f;
-        }
-        
-        public static FacebookAppService InstanceFacebookOperation
+        public static string AppID = null;
+
+        public static SingletonFacebookAppService GetInstanceFacebookServices
         {
             get
             {
-                if (m_InstanceFacebookOperation == null)
+                if (m_InstanceFacebookServices == null)
                 {
-                    m_InstanceFacebookOperation = new FacebookAppService();
+                    m_InstanceFacebookServices = new SingletonFacebookAppService();
                 }
-                return m_InstanceFacebookOperation;
+
+                return m_InstanceFacebookServices;
             }
         }
- 
+
+        public int CollectionLimit { get; set; }
+
+        public float FbApiVersion { get; set; }
+
+        private bool m_isLogedIn = false;
+        private User m_User;
+        private string m_AccessToken;
+
+        private SingletonFacebookAppService()
+        {
+            CollectionLimit = 100;
+            FbApiVersion = 20.5f;
+        }
+
         public bool LoginToFaceBook(params string[] i_RequestPermissions)
         {
             if (AppID == null)
             {
                 throw new ArgumentNullException("AppID not defined");
             }
+
             bool o_LoginOperationSucceeded = true;
             LoginResult result = FacebookService.Login(AppID, i_RequestPermissions);
             if (!string.IsNullOrEmpty(result.AccessToken))

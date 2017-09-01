@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,6 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
-using System.Threading;
 
 namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
@@ -18,22 +18,18 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         private const string k_Warning = "WARNING";
         private const int k_BrowserVersion = 11001;
         private const string k_WebUrl = "https://www.youtube.com/results?search_query=";
-        private FacebookAppService m_FacebookOp;
-        private List<string> m_UsertDetails;
-        private List<Page> m_MusicPages;
+        private MusicServices m_MusicServices;
 
         public FormMusics()
         {
             InitializeComponent();
-            m_FacebookOp = FacebookAppService.InstanceFacebookOperation;
             try
             {
-                m_UsertDetails = m_FacebookOp.FetchUserBasicDetails();
+                m_MusicServices = new MusicServices();
             }
             catch (InvalidOperationException exception)
             {
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
-                //MessageNotification.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -41,16 +37,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                /*m_MusicPages = m_FacebookOp.FetchMusic();
-                listBoxFetchMusics.DisplayMember = "Name";
-                listBoxFetchMusics.DataSource = m_MusicPages;*/
-
-                new Thread(ShowMusicPages).Start();
-
-                /*if (m_MusicPages.Count() == 0)
-                {
-                    FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no Music Pages", k_Warning);
-                }*/
+                new Thread(() => m_MusicServices.ShowMusicPages(listBoxFetchMusics, pageBindingSource)).Start();
             }
             catch (InvalidOperationException exception)
             {
@@ -66,18 +53,6 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             url.Append(k_WebUrl);
             url.Append(singerName[3]);
             webBrowserVideosProxy.Navigate(url.ToString());
-        }   
-
-        private void ShowMusicPages()
-        {
-            m_MusicPages = m_FacebookOp.FetchMusic();
-
-            listBoxFetchMusics.Invoke(new Action(() => pageBindingSource.DataSource = m_MusicPages));
-
-            if (m_MusicPages.Count() == 0)
-            {
-                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no Music Pages", k_Warning);
-            }
         }
     }
 }

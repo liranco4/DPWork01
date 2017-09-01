@@ -50,8 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckInServices.cs" />
+    <Compile Include="MusicServices.cs" />
     <Compile Include="ErrorMessage.cs" />
-    <Compile Include="FacebookService.cs" />
+    <Compile Include="SingletonFacebookAppService.cs" />
     <Compile Include="FactoryMessageNotification.cs" />
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
@@ -77,6 +79,7 @@
     <Compile Include="FormInfo.Designer.cs">
       <DependentUpon>FormInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoServices.cs" />
     <Compile Include="MessageNotification.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
