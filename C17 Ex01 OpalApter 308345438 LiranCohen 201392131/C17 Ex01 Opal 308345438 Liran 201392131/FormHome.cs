@@ -28,7 +28,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             InitializeComponent();
             SingletonFacebookAppService.AppID = "1752749615018089";
-            m_FacebookAppService = SingletonFacebookAppService.GetInstanceFacebookServices;
+            m_FacebookAppService = SingletonFacebookAppService.GetInstanceFacebookServices();
             var imageSize = PictureBox1.Image.Size;
             var fitSize = PictureBox1.ClientSize;
             PictureBox1.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?

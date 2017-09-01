@@ -11,34 +11,29 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
     public class SingletonFacebookAppService
     {
         private static SingletonFacebookAppService m_InstanceFacebookServices = null;
-
         public static string AppID = null;
-
-        public static SingletonFacebookAppService GetInstanceFacebookServices
-        {
-            get
-            {
-                if (m_InstanceFacebookServices == null)
-                {
-                    m_InstanceFacebookServices = new SingletonFacebookAppService();
-                }
-
-                return m_InstanceFacebookServices;
-            }
-        }
+        private bool m_isLogedIn = false;
+        private User m_User;
+        private string m_AccessToken;
 
         public int CollectionLimit { get; set; }
 
         public float FbApiVersion { get; set; }
 
-        private bool m_isLogedIn = false;
-        private User m_User;
-        private string m_AccessToken;
-
         private SingletonFacebookAppService()
         {
             CollectionLimit = 100;
             FbApiVersion = 20.5f;
+        }
+
+        public static SingletonFacebookAppService GetInstanceFacebookServices()
+        {
+            if (m_InstanceFacebookServices == null)
+            {
+                m_InstanceFacebookServices = new SingletonFacebookAppService();
+            }
+
+            return m_InstanceFacebookServices;
         }
 
         public bool LoginToFaceBook(params string[] i_RequestPermissions)
