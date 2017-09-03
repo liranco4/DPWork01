@@ -29,14 +29,17 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonFetchCheckIn_Click(object sender, EventArgs e)
         {
+            new Thread(() => 
+            {
             try
             {
-                new Thread(() => m_CheckInServices.ShowCheckIns(listBoxCheckIn, checkinBindingSource)).Start();
+                m_CheckInServices.ShowCheckIns(listBoxCheckIn, checkinBindingSource);
             }
             catch (InvalidOperationException exception)
             {
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
             }
+            }).Start();
         }
 
         private void listBoxCheckIn_SelectedIndexChanged(object sender, EventArgs e)

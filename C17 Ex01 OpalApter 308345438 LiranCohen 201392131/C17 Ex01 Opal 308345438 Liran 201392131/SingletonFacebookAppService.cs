@@ -114,7 +114,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 if (m_User != null)
                 {
                     Status o_PostedStatus = m_User.PostStatus(i_StatusToPost);
-                    return o_PostedStatus.Id;
+                    return o_PostedStatus.Id;            
                 }
                 else
                 {

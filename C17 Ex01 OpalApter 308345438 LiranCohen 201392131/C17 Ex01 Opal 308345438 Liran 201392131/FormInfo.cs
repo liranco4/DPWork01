@@ -28,67 +28,86 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
+            new Thread(() => 
+            {           
             try
             {
-                string result = m_InfoServices.PostStatus(textBoxPost.Text);                
-                MessageBox.Show(string.Format("Status Post ID: {0}",result));
+                string result = m_InfoServices.PostStatus(textBoxPost.Text);
+                MessageBox.Show(string.Format("Status Post ID: {0}", result));   
+            }
+            catch(Facebook.FacebookOAuthException exception)
+            {
+                FactoryMessageNotification.CreateMessage(string.Format("Post failed: {0}",exception.Message), k_Error).ShowMessageNotificationOnForm();
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
             }
             catch (ArgumentException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
             }
+            }).Start();
         }
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)
         {
+            new Thread(() => 
+            {
             try
             {
-                new Thread(() => m_InfoServices.ShowFriends(listBoxFetchFriends, userBindingSource)).Start();
+                 m_InfoServices.ShowFriends(listBoxFetchFriends, userBindingSource);
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
             }
+            }).Start();
         }
 
         private void buttonFetchLikedPages_Click(object sender, EventArgs e)
         {
-            try
+            new Thread(() =>
             {
-                new Thread(() => m_InfoServices.ShowLikedPages(listBoxFetchLikedPages, pageBindingSource)).Start();
-            }
-            catch (InvalidOperationException exception)
-            {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
-            }
+                try
+                {
+                    m_InfoServices.ShowLikedPages(listBoxFetchLikedPages, pageBindingSource);
+                }
+                catch (InvalidOperationException exception)
+                {
+                    FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
+                }
+            }).Start();
         }
 
         private void buttonFetchPost_Click(object sender, EventArgs e)
         {
-            try
+            new Thread(() =>
             {
-                new Thread(() => m_InfoServices.ShowPosts(listBoxFetchPost, postBindingSource)).Start();
-            }
-            catch (InvalidOperationException exception)
-            {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
-            }
+                try
+                {
+                    m_InfoServices.ShowPosts(listBoxFetchPost, postBindingSource);
+                }
+                catch (InvalidOperationException exception)
+                {
+                    FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
+                }
+            }).Start();
         }
 
         private void buttonFetchEvents_Click(object sender, EventArgs e)
         {
+            new Thread(() => 
+            {
             try
             {
-                new Thread(() => m_InfoServices.ShowEvents(listBoxFetchEvents, eventBindingSource)).Start();
+                m_InfoServices.ShowEvents(listBoxFetchEvents, eventBindingSource);
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
             }
+            }).Start();
         }
     }
 }

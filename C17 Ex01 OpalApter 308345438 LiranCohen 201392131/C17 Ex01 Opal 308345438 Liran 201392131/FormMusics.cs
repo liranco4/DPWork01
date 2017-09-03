@@ -35,14 +35,17 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
         private void buttonFetchMusics_Click(object sender, EventArgs e)
         {
-            try
+            new Thread(() =>
             {
-                new Thread(() => m_MusicServices.ShowMusicPages(listBoxFetchMusics, pageBindingSource)).Start();
-            }
-            catch (InvalidOperationException exception)
-            {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
-            }
+                try
+                {
+                    m_MusicServices.ShowMusicPages(listBoxFetchMusics, pageBindingSource);
+                }
+                catch (InvalidOperationException exception)
+                {
+                    FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
+                }
+            }).Start();
         }
 
         private void listBoxFetchMusic_SelectedIndexChanged(object sender, EventArgs e)
