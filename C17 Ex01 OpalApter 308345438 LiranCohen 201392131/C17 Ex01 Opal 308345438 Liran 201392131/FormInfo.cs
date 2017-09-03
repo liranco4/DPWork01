@@ -30,16 +30,16 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             try
             {
-                new Thread(() => m_InfoServices.PostStatus(textBoxPost.Text)).Start();                
-                MessageBox.Show("Status Posted!");
+                string result = m_InfoServices.PostStatus(textBoxPost.Text);                
+                MessageBox.Show(string.Format("Status Post ID: {0}",result));
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
             }
             catch (ArgumentException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
             }
         }
 
@@ -51,7 +51,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
             }
         }
 
@@ -63,7 +63,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
             }
         }
 
@@ -75,7 +75,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
             }
         }
 
@@ -87,7 +87,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
             }
         }
     }

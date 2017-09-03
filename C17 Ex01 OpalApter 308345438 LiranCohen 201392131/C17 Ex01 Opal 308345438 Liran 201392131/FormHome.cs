@@ -74,16 +74,16 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                 }
                 else
                 {
-                  FactoryMessageNotification.CreateMessage(k_CannotLoggedInError, k_Error);
+                    FactoryMessageNotification.CreateMessage(k_CannotLoggedInError, k_Error).ShowMessageNotificationOnForm();
                 }
             }
             catch (Facebook.FacebookOAuthException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
             }
             catch (ArgumentNullException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
             }
         }
 
@@ -101,7 +101,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookAppService.isLoggedIn())
             {
-                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
+                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning).ShowMessageNotificationOnForm();
             }
             else
             {
@@ -124,7 +124,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookAppService.isLoggedIn())
             {
-                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
+                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning).ShowMessageNotificationOnForm();
             }
             else
             {
@@ -147,7 +147,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
         {
             if (!m_FacebookAppService.isLoggedIn())
             {
-                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning);
+                FactoryMessageNotification.CreateMessage(k_AutenticationMessage, k_Warning).ShowMessageNotificationOnForm();
             }
             else
             {
@@ -181,7 +181,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             else
             {
-                FactoryMessageNotification.CreateMessage(k_LoggedOutError, k_Error);
+                FactoryMessageNotification.CreateMessage(k_LoggedOutError, k_Error).ShowMessageNotificationOnForm();
             }
         }
 

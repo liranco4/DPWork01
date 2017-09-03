@@ -8,9 +8,13 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public class WarningMessage : MessageNotification
     {
-        public WarningMessage(string i_Message) : base(i_Message)
+        public WarningMessage(string i_Message) : base(i_Message, MessageBoxButtons.OK, MessageBoxIcon.Warning)
         {
-            MessageBox.Show(i_Message, "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
+        }
+        public override void ShowMessageNotificationOnForm()
+        {
+            MessageBox.Show(m_Message, "WARNING", m_Buttons, m_Icon);
         }
     }
 }

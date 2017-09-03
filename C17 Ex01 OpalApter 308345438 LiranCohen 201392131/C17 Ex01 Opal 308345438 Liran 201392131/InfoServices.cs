@@ -25,7 +25,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
             if (m_FacebookAppService.FetchLikedPagesCount() == 0)
             {
-                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no liked pages", k_Warning);
+                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no liked pages", k_Warning).ShowMessageNotificationOnForm();
             }
         }
 
@@ -35,7 +35,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
             if (m_FacebookAppService.FetchEevntsCount() == 0)
             {
-                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no events", k_Warning);
+                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no events", k_Warning).ShowMessageNotificationOnForm();
             }
         }
 
@@ -45,7 +45,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
             if (m_FacebookAppService.FetchPostsCount() == 0)
             {
-                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no post", k_Warning);
+                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no post", k_Warning).ShowMessageNotificationOnForm();
             }
         }
 
@@ -56,7 +56,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             if (m_FacebookAppService.FetchFriendCount() == 0)
             {
                 m_UsertDetails = m_FacebookAppService.FetchUserBasicDetails();
-                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + "has no friends", k_Warning);
+                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + "has no friends", k_Warning).ShowMessageNotificationOnForm();
             }
         }
 

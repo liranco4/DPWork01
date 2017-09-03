@@ -97,7 +97,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonFetchCheckIn;
-        private WebBrowserProxy webCheckINBrowserProxy;
+        private System.Windows.Forms.WebBrowser webCheckINBrowserProxy;
         private System.Windows.Forms.ListBox listBoxCheckIn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.BindingSource checkinBindingSource;

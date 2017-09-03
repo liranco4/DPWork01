@@ -149,7 +149,7 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.ListBox listBoxFetchMusics;
         private System.Windows.Forms.Button buttonFetchMusics;
-        private WebBrowserProxy webBrowserVideosProxy;
+        private System.Windows.Forms.WebBrowser webBrowserVideosProxy;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource pageBindingSource;

@@ -30,7 +30,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 
             if (m_MusicPages.Count() == 0)
             {
-                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no Music Pages", k_Warning);
+                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no Music Pages", k_Warning).ShowMessageNotificationOnForm();
             }
         }
     }

@@ -8,9 +8,12 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
 {
     public class ErrorMessage : MessageNotification
     {
-        public ErrorMessage(string i_Message) : base(i_Message)
+        public ErrorMessage(string i_Message): base(i_Message, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        {  }
+        
+        public override void ShowMessageNotificationOnForm()
         {
-            MessageBox.Show(this.m_Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(m_Message, "ERROR", m_Buttons, m_Icon);
         }
     }
 }

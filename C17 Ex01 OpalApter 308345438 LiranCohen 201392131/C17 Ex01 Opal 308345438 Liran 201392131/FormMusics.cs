@@ -29,7 +29,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();   
             }
         }
 
@@ -41,7 +41,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch (InvalidOperationException exception)
             {
-                FactoryMessageNotification.CreateMessage(exception.Message, k_Error);
+                FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm(); ;
             }
         }
 
