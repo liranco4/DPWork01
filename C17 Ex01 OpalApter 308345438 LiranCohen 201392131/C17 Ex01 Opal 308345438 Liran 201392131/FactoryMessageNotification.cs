@@ -33,6 +33,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
                         throw new ArgumentException("Illegal Message");
                     }
             }
+
             return message;
         }
     }

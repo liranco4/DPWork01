@@ -37,7 +37,7 @@ namespace C17_Ex01_Opal_308345438_Liran_201392131
             }
             catch(Facebook.FacebookOAuthException exception)
             {
-                FactoryMessageNotification.CreateMessage(string.Format("Post failed: {0}",exception.Message), k_Error).ShowMessageNotificationOnForm();
+                FactoryMessageNotification.CreateMessage(string.Format("Post failed: {0}", exception.Message), k_Error).ShowMessageNotificationOnForm();
             }
             catch (InvalidOperationException exception)
             {
