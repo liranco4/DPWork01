@@ -52,10 +52,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
 
         public void ShowPosts(ListBox i_ListBoxFetchPost, BindingSource i_PostBindingSource)
         {
-            //i_ListBoxFetchPost.Invoke(new Action(() => i_PostBindingSource.DataSource = m_FacebookAppService.FetchPosts()));
-
-            PostsIterator postIterator = new PostsIterator();
-            postIterator.Test = post => post.Message!=null;
+            PostsIterator postIterator = new PostsIterator(post => post.Message != null);
 
             i_ListBoxFetchPost.Invoke(new Action(() => i_ListBoxFetchPost.DisplayMember = "Message"));
 
