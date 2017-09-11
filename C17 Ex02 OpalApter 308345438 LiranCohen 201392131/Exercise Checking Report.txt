@@ -6,5 +6,5 @@ Delivery Date.........: 04 - September - 2017
 Delivered In Delay....: No
 Delay Reason..........: 
 Visual Studio Version.: 2013
-Comments..............:  
+Comments..............:  We couldn't change the folder name from "Ex01" to "Ex02" because the project cannot be initialized.
 ========================End Exercise Checking Report========================
