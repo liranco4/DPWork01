@@ -13,8 +13,9 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
 
         public Func<Post, bool> Test { get; set; }
 
-        public PostsIterator()
+        public PostsIterator(Func<Post, bool> i_Function)
         {
+            Test = i_Function;
             m_Posts = SingletonFacebookAppService.GetInstanceFacebookServices().FetchPosts();
         }
 

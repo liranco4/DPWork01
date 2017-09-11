@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckInServices.cs" />
-    <Compile Include="IPatialPost.cs" />
     <Compile Include="MusicServices.cs" />
     <Compile Include="ErrorMessage.cs" />
     <Compile Include="PostsIterator.cs" />
@@ -112,6 +111,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Checkin.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.Event.datasource" />
     <None Include="Properties\DataSources\FacebookWrapper.ObjectModel.FriendList.datasource" />
