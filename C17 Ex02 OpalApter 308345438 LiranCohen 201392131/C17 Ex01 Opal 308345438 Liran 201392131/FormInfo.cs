@@ -25,6 +25,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
         {
             InitializeComponent();
             m_InfoServices = new InfoServices();
+            m_InfoServices.UpdatingResponsePostID += this.showResponsePostIDOnFormInfo_UpdatingResponsePostID;
         }
 
         private void buttonPost_Click(object sender, EventArgs e)
@@ -33,8 +34,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             {           
             try
             {
-                string result = m_InfoServices.PostStatus(textBoxPost.Text);
-                MessageBox.Show(string.Format("Status Post ID: {0}", result));   
+                m_InfoServices.PostStatus(textBoxPost.Text); 
             }
             catch(Facebook.FacebookOAuthException exception)
             {
@@ -49,6 +49,11 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
                 FactoryMessageNotification.CreateMessage(exception.Message, k_Error).ShowMessageNotificationOnForm();
             }
             }).Start();
+        }
+
+        private void showResponsePostIDOnFormInfo_UpdatingResponsePostID(string i_ResponsePostID)
+        {
+            MessageBox.Show(string.Format("Status Post ID: {0}", i_ResponsePostID));   
         }
 
         private void buttonFetchFriends_Click(object sender, EventArgs e)

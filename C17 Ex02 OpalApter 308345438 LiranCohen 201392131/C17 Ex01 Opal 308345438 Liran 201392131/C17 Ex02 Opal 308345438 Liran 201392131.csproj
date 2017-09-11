@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckInServices.cs" />
+    <Compile Include="DelegateContainer.cs" />
     <Compile Include="IPatialPost.cs" />
     <Compile Include="MusicServices.cs" />
     <Compile Include="ErrorMessage.cs" />

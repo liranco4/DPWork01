@@ -15,7 +15,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
         private const string k_Warning = "WARNING";
         private SingletonFacebookAppService m_FacebookAppService;
         private List<string> m_UsertDetails;
-
+        public event DelegateContainer.UpdateResponsePostID<string> UpdatingResponsePostID;
         public InfoServices() 
         {
             m_FacebookAppService = SingletonFacebookAppService.GetInstanceFacebookServices();
@@ -85,9 +85,10 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             }
         }
 
-        public string PostStatus(string i_Status)
+        public void PostStatus(string i_Status)
         {
-            return m_FacebookAppService.PostStatus(i_Status);
+            var responsePostID = m_FacebookAppService.PostStatus(i_Status);
+            this.onUpdateResponsePostID(responsePostID);
         }
 
         public void SortLikedPages(ListBox i_ListBoxFetchLikedPages, BindingSource i_PageBindingSource, string i_CompareBy)
@@ -151,6 +152,13 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
                         i_EventBindingSource.DataSource = sorter.Sort(i_ListBoxFetchEvents.Items.Cast<Event>().ToList());
                         break;
                     }
+            }
+        }
+
+        private void onUpdateResponsePostID(string i_ResponseID){
+            if(this.UpdatingResponsePostID!=null)
+            {
+                this.UpdatingResponsePostID(i_ResponseID);
             }
         }
     }
