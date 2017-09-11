@@ -238,8 +238,6 @@
             // 
             // listBoxFetchPost
             // 
-            this.listBoxFetchPost.DataSource = this.postBindingSource;
-            this.listBoxFetchPost.DisplayMember = "Message";
             this.listBoxFetchPost.FormattingEnabled = true;
             this.listBoxFetchPost.ItemHeight = 16;
             this.listBoxFetchPost.Location = new System.Drawing.Point(797, 563);

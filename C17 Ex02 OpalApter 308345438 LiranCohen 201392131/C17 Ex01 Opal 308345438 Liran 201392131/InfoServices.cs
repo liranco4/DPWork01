@@ -52,7 +52,17 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
 
         public void ShowPosts(ListBox i_ListBoxFetchPost, BindingSource i_PostBindingSource)
         {
-            i_ListBoxFetchPost.Invoke(new Action(() => i_PostBindingSource.DataSource = m_FacebookAppService.FetchPosts()));
+            //i_ListBoxFetchPost.Invoke(new Action(() => i_PostBindingSource.DataSource = m_FacebookAppService.FetchPosts()));
+
+            PostsIterator postIterator = new PostsIterator();
+            postIterator.Test = post => post.Message!=null;
+
+            i_ListBoxFetchPost.Invoke(new Action(() => i_ListBoxFetchPost.DisplayMember = "Message"));
+
+            foreach (Post post in postIterator)
+            {
+                i_ListBoxFetchPost.Invoke(new Action(()=>i_ListBoxFetchPost.Items.Add(post)));
+            }
 
             if (m_FacebookAppService.FetchPostsCount() == 0)
             {
@@ -86,13 +96,13 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             {
                 case ("Name"):
                     {
-                        Sorter<Page> sorter = new Sorter<Page>((page1, page2) => page1.Name.CompareTo(page2.Name) == 1 ? true : false);
+                        SorterStrategy<Page> sorter = new SorterStrategy<Page>((page1, page2) => page1.Name.CompareTo(page2.Name) == 1 ? true : false);
                         i_PageBindingSource.DataSource = sorter.Sort(i_ListBoxFetchLikedPages.Items.Cast<Page>().ToList());
                         break;
                     }
                 case ("Category"):
                     {
-                        Sorter<Page> sorter = new Sorter<Page>((page1, page2) => page1.Category.CompareTo(page2.Category) == 1 ? true : false);
+                        SorterStrategy<Page> sorter = new SorterStrategy<Page>((page1, page2) => page1.Category.CompareTo(page2.Category) == 1 ? true : false);
                         i_PageBindingSource.DataSource = sorter.Sort(i_ListBoxFetchLikedPages.Items.Cast<Page>().ToList());
                         break;
                     }
@@ -105,13 +115,13 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             {
                 case ("First Name"):
                     {
-                        Sorter<User> sorter = new Sorter<User>((friend1, friend2) => friend1.FirstName.CompareTo(friend2.FirstName) == 1 ? true : false);
+                        SorterStrategy<User> sorter = new SorterStrategy<User>((friend1, friend2) => friend1.FirstName.CompareTo(friend2.FirstName) == 1 ? true : false);
                         i_UserBindingSource.DataSource = sorter.Sort(i_ListBoxFetchFriends.Items.Cast<User>().ToList());
                         break;
                     }
                 case ("Last Name"):
                     {
-                        Sorter<User> sorter = new Sorter<User>((friend1, friend2) => friend1.LastName.CompareTo(friend2.LastName)==1?true:false);
+                        SorterStrategy<User> sorter = new SorterStrategy<User>((friend1, friend2) => friend1.LastName.CompareTo(friend2.LastName)==1?true:false);
                         i_UserBindingSource.DataSource = sorter.Sort(i_ListBoxFetchFriends.Items.Cast<User>().ToList());
                         break;
                     }
@@ -124,20 +134,20 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             {
                 case ("Name"):
                     {
-                        Sorter<Event> sorter = new Sorter<Event>((event1, event2) => event1.Name.CompareTo(event2.Name) == 1 ? true : false);
+                        SorterStrategy<Event> sorter = new SorterStrategy<Event>((event1, event2) => event1.Name.CompareTo(event2.Name) == 1 ? true : false);
                         i_EventBindingSource.DataSource = sorter.Sort(i_ListBoxFetchEvents.Items.Cast<Event>().ToList());
                         break;
                     }
                 case ("Start Time"):
                     {
                         DateTime dt = DateTime.ParseExact("24/01/2013", "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        Sorter<Event> sorter = new Sorter<Event>((event1, event2) => event1.StartTime.Value > event2.StartTime.Value);
+                        SorterStrategy<Event> sorter = new SorterStrategy<Event>((event1, event2) => event1.StartTime.Value > event2.StartTime.Value);
                         i_EventBindingSource.DataSource = sorter.Sort(i_ListBoxFetchEvents.Items.Cast<Event>().ToList());
                         break;
                     }
                 case ("End Time"):
                     {
-                        Sorter<Event> sorter = new Sorter<Event>((event1, event2) => event1.EndTime > event2.EndTime);
+                        SorterStrategy<Event> sorter = new SorterStrategy<Event>((event1, event2) => event1.EndTime > event2.EndTime);
                         i_EventBindingSource.DataSource = sorter.Sort(i_ListBoxFetchEvents.Items.Cast<Event>().ToList());
                         break;
                     }

@@ -51,8 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckInServices.cs" />
+    <Compile Include="IPatialPost.cs" />
     <Compile Include="MusicServices.cs" />
     <Compile Include="ErrorMessage.cs" />
+    <Compile Include="PostsIterator.cs" />
     <Compile Include="SingletonFacebookAppService.cs" />
     <Compile Include="FactoryMessageNotification.cs" />
     <Compile Include="FormHome.cs">
@@ -83,7 +85,7 @@
     <Compile Include="MessageNotification.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sorter.cs" />
+    <Compile Include="SorterStrategy.cs" />
     <Compile Include="WarningMessage.cs" />
     <Compile Include="WebBrowserProxy.cs">
       <SubType>Component</SubType>
