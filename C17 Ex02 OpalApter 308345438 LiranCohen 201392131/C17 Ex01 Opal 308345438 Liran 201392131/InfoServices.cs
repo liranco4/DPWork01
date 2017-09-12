@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using System.Globalization;
 
 namespace C17_Ex02_Opal_308345438_Liran_201392131
 {
@@ -15,6 +15,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
         private const string k_Warning = "WARNING";
         private SingletonFacebookAppService m_FacebookAppService;
         private List<string> m_UsertDetails;
+
         public event Action<string> UpdatingResponsePostID;
 
         public InfoServices() 
@@ -47,24 +48,27 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             }
             else
             {
-                i_EventsCb.Invoke(new Action(()=>i_EventsCb.Enabled=true));
+                i_EventsCb.Invoke(new Action(() => i_EventsCb.Enabled = true));
             }
         }
 
         public void ShowPosts(ListBox i_ListBoxFetchPost, BindingSource i_PostBindingSource)
         {
-            PostsIterator postIterator = new PostsIterator(post => post.Message != null);
-            
-            i_ListBoxFetchPost.Invoke(new Action(() => i_ListBoxFetchPost.DisplayMember = "Message"));
-
-            foreach (Post post in postIterator)
+            if (i_ListBoxFetchPost.Items.Count == 0)
             {
-                i_ListBoxFetchPost.Invoke(new Action(()=>i_ListBoxFetchPost.Items.Add(post)));
-            }
+                PostsIterator postIterator = new PostsIterator(post => post.Message != null);
 
-            if (m_FacebookAppService.FetchPostsCount() == 0)
-            {
-                FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no post", k_Warning).ShowMessageNotificationOnForm();
+                i_ListBoxFetchPost.Invoke(new Action(() => i_ListBoxFetchPost.DisplayMember = "Message"));
+
+                foreach (Post post in postIterator)
+                {
+                    i_ListBoxFetchPost.Invoke(new Action(() => i_ListBoxFetchPost.Items.Add(post)));
+                }
+
+                if (m_FacebookAppService.FetchPostsCount() == 0)
+                {
+                    FactoryMessageNotification.CreateMessage(m_UsertDetails[0] + " has no post", k_Warning).ShowMessageNotificationOnForm();
+                }
             }
         }
 
@@ -93,13 +97,14 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
         {
             switch (i_CompareBy)
             {
-                case ("Name"):
+                case "Name":
                     {
                         SorterStrategy<Page> sorter = new SorterStrategy<Page>((page1, page2) => page1.Name.CompareTo(page2.Name) == 1 ? true : false);
                         i_PageBindingSource.DataSource = sorter.Sort(i_ListBoxFetchLikedPages.Items.Cast<Page>().ToList());
                         break;
                     }
-                case ("Category"):
+
+                case "Category":
                     {
                         SorterStrategy<Page> sorter = new SorterStrategy<Page>((page1, page2) => page1.Category.CompareTo(page2.Category) == 1 ? true : false);
                         i_PageBindingSource.DataSource = sorter.Sort(i_ListBoxFetchLikedPages.Items.Cast<Page>().ToList());
@@ -112,15 +117,16 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
         {
             switch (i_CompareBy)
             {
-                case ("First Name"):
+                case "First Name":
                     {
                         SorterStrategy<User> sorter = new SorterStrategy<User>((friend1, friend2) => friend1.FirstName.CompareTo(friend2.FirstName) == 1 ? true : false);
                         i_UserBindingSource.DataSource = sorter.Sort(i_ListBoxFetchFriends.Items.Cast<User>().ToList());
                         break;
                     }
-                case ("Last Name"):
+
+                case "Last Name":
                     {
-                        SorterStrategy<User> sorter = new SorterStrategy<User>((friend1, friend2) => friend1.LastName.CompareTo(friend2.LastName)==1?true:false);
+                        SorterStrategy<User> sorter = new SorterStrategy<User>((friend1, friend2) => friend1.LastName.CompareTo(friend2.LastName) == 1 ? true : false);
                         i_UserBindingSource.DataSource = sorter.Sort(i_ListBoxFetchFriends.Items.Cast<User>().ToList());
                         break;
                     }
@@ -131,20 +137,22 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
         {
             switch (i_CompareBy)
             {
-                case ("Name"):
+                case "Name":
                     {
                         SorterStrategy<Event> sorter = new SorterStrategy<Event>((event1, event2) => event1.Name.CompareTo(event2.Name) == 1 ? true : false);
                         i_EventBindingSource.DataSource = sorter.Sort(i_ListBoxFetchEvents.Items.Cast<Event>().ToList());
                         break;
                     }
-                case ("Start Time"):
+
+                case "Start Time":
                     {
                         DateTime dt = DateTime.ParseExact("24/01/2013", "dd/MM/yyyy", CultureInfo.InvariantCulture);
                         SorterStrategy<Event> sorter = new SorterStrategy<Event>((event1, event2) => event1.StartTime.Value > event2.StartTime.Value);
                         i_EventBindingSource.DataSource = sorter.Sort(i_ListBoxFetchEvents.Items.Cast<Event>().ToList());
                         break;
                     }
-                case ("End Time"):
+
+                case "End Time":
                     {
                         SorterStrategy<Event> sorter = new SorterStrategy<Event>((event1, event2) => event1.EndTime > event2.EndTime);
                         i_EventBindingSource.DataSource = sorter.Sort(i_ListBoxFetchEvents.Items.Cast<Event>().ToList());
@@ -153,8 +161,9 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             }
         }
 
-        private void onUpdateResponsePostID(string i_ResponseID){
-            if(this.UpdatingResponsePostID!=null)
+        private void onUpdateResponsePostID(string i_ResponseID)
+        {
+            if(this.UpdatingResponsePostID != null)
             {
                 this.UpdatingResponsePostID(i_ResponseID);
             }

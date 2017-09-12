@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Globalization;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,6 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using System.Globalization;
 
 namespace C17_Ex02_Opal_308345438_Liran_201392131
 {
@@ -62,7 +62,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             {
             try
             {
-                 m_InfoServices.ShowFriends(listBoxFetchFriends, userBindingSource,cbSortByFriends);
+                 m_InfoServices.ShowFriends(listBoxFetchFriends, userBindingSource, cbSortByFriends);
             }
             catch (InvalidOperationException exception)
             {
@@ -77,7 +77,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             {
                 try
                 {
-                    m_InfoServices.ShowLikedPages(listBoxFetchLikedPages, pageBindingSource,cbSortByLikedPages);
+                    m_InfoServices.ShowLikedPages(listBoxFetchLikedPages, pageBindingSource, cbSortByLikedPages);
                 }
                 catch (InvalidOperationException exception)
                 {
@@ -107,7 +107,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
             {
             try
             {
-                m_InfoServices.ShowEvents(listBoxFetchEvents, eventBindingSource,cbSortByEvents);
+                m_InfoServices.ShowEvents(listBoxFetchEvents, eventBindingSource, cbSortByEvents);
             }
             catch (InvalidOperationException exception)
             {
@@ -130,7 +130,5 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
         {
             m_InfoServices.SortEvents(listBoxFetchEvents, eventBindingSource, cbSortByEvents.SelectedItem.ToString());
         }
-
-
     }
 }
