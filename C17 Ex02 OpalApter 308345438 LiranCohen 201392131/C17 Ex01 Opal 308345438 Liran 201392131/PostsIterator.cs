@@ -23,7 +23,7 @@ namespace C17_Ex02_Opal_308345438_Liran_201392131
         {
             foreach (Post post in m_Posts)
             {
-                if(Test.Invoke(post))
+                if (Test.Invoke(post))
                 {
                     yield return post;
                 }
